@@ -48,13 +48,13 @@ or pass `root=` to `load_dataset` / `load_pretrained`. Each ion folder holds:
 
 | File | Contents |
 |---|---|
-| `transitions.parquet` | one row per (initial → (de)lithiated material) of each electrode: compositions, x, Edecomp of both ends, ΔEdecomp (eV/atom) |
+| `transitions.parquet` | one row per initial → (de)lithiated material pair: compositions, x, Edecomp of both ends, ΔEdecomp (eV/atom) |
 | `transition_rows.parquet`, `material_rows.parquet` | the training rows with every feature and target (ΔEdecomp; Edecomp and formation energy per material) |
 | `battery_split.parquet` | the fixed grouped split: electrode → test or CV fold |
 | `materials.parquet` | per material: P1 oxidation states and score, coordination environments, Edecomp, MP's stored values for comparison |
 | `initial_structures.parquet` | each electrode's initial structure (pymatgen JSON) |
 | `hull_docs.json.gz` | MP2020-corrected GGA/GGA+U energies of every chemical system (the hull every Edecomp comes from) |
-| `unscored.parquet`, `batteries_dropped.parquet`, `transitions_dropped.parquet`, `cleaning_log.json` | what was removed and why |
+| `unscored.parquet`, `batteries_dropped.parquet`, `transitions_dropped.parquet`, `cleaning_log.json` | materials removed during data cleaning |
 | `capacity_materials.parquet`, `capacity_hull_grid.parquet` | inputs of the stable-range capacity metric |
 | `manifest.json`, `checksums.json` | feature groups and units; file checksums and counts |
 
