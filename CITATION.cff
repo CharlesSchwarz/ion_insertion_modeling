@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper (preferred-citation) and this code."
+title: "ion_insertion_modeling"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/CharlesSchwarz/ion_insertion_modeling"
+authors:
+  - family-names: Schwarz
+    given-names: Charles
+# TODO at release: add the Zenodo DOI of this version (doi:) and fill in the paper below.
+preferred-citation:
+  type: article
+  title: "Predicting the stability of ion-insertion electrode materials on ion insertion and removal"
+  authors:
+    - family-names: Schwarz
+      given-names: Charles
+  status: in-preparation
