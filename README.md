@@ -16,7 +16,7 @@ of 103 mAh/g.*
 This repo contains code to:
 - Predict changes in element oxidation states upon lithiation/delithiation.
 - Calculate physical features of a material's crystal structure, using topographical analysis and CrystalNN.
-- Design and train scikit-learn models to predict changes in a materials stability upon lithiation/delithiation, drawing on data from the Materials Project Insertion Electrode Database.
+- Design and train scikit-learn models to predict changes in a material's stability upon lithiation/delithiation, drawing on data from the Materials Project Insertion Electrode Database.
 - Apply models to predict quantities like capacity, voltage, and energy density for any oxide cathode material.
 
 ```python
@@ -44,23 +44,17 @@ environments, and so the oxidation states and features, so a different pymatgen 
 
 ## Data
 
-Two things ship with the package, so the quickstart and notebooks run right after install:
-- **The pretrained model** (`load_pretrained()`): the 5-feature random forest predicting ΔE_decomp, trained on the
-  2,011 training electrodes of the Li dataset.
-- **A demo dataset** (`load_demo_dataset()`): 300 randomly chosen training electrodes of the Li dataset (plus olivine
-  LiFePO4), with features, targets, cross-validation folds, structures and competing-phase energies. It has no
-  held-out test electrodes. It is meant for trying the model-building tools; metrics on it are noisier than on the
-  full dataset.
+The package currently includes a demo dataset and one pretrained model (trained on the Materials Project Insertion Electrode Database),
+which are used in the quickstart notebook.
 
-The full dataset (Li, Na, Mg, K) is not yet available. Once it is, `load_dataset("Li")` reads it from the folder in
-`ION_INSERTION_MODELING_DATA`.
+The full dataset will be made available later.
 
 ## What is in the package
 
 | Module | What it does | Contents |
 |---|---|---|
 | `oxi_state_inference` | Custom oxidation-state guessing algorithm. Given an oxide crystal structure, or just a list of coordination environments, predict | guess_from_environments(composition, environments), guess_from_framework(composition, structure), guess_from_structure(structure), p_ox(el, ox), p_ox_given_env(el, ox, env), best_ion_content(structure)
-| `featurizers` |  Calculators for a range of feature, based on the matminer `BaseFeaturizer` framework | `FrameworkMagpie`, `PolyanionFlag`, `CompositionMagpie`, `IonRedox`, `OxidationStateProperties`, `FrameworkStructure`, `InsertionSites`, `HullEnergies`, `PaperFeaturizer`; the paper's feature lists in `FEATURE_SETS` |
+| `featurizers` |  Calculators for a range of features, based on the matminer `BaseFeaturizer` framework | `FrameworkMagpie`, `PolyanionFlag`, `CompositionMagpie`, `IonRedox`, `OxidationStateProperties`, `FrameworkStructure`, `InsertionSites`, `HullEnergies`, `PaperFeaturizer`; the paper's feature lists in `FEATURE_SETS` |
 | `model_building` | gather data, select features, and train regression models for stability| `load_dataset`, `load_demo_dataset`, `grouped_split`, `rank_features`, `interpretable_walk`, `cross_validate` (targets `delta_edecomp`, `edecomp`, `eform`), `fit_final`, `TrainedModel`, parity plots |
 | `insertion_stability` | predict higher-level properties, like capacity and energy density| `stability_curve`, `predict_capacity`, `predict_capacities`, `predict_voltage_profile`, `predict_energy_density` |
 | `thermo` | thermodynamics helpers| MP2020 GGA/GGA+U hulls, `edecomp_of`, `docs_from_mp` |
