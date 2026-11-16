@@ -434,7 +434,7 @@ for a, b in zip(steps.itertuples(), steps.iloc[1:].itertuples()):  # vertical ju
     ax.plot([a.x_to, a.x_to], [a.V, b.V], color="tab:red", lw=1.5)
 ax.set_ylim(bottom=0)
 ax.set_xlabel("x in Li$_x$Pr$_3$Mo$_{1.5}$Mn$_{0.5}$O$_{12}$"); ax.set_ylabel("V vs Li/Li$^+$")
-ax.set_title(f"mean {vp.mean_voltage:.2f} V")'''),
+ax.set_title(f"Mean voltage {vp.mean_voltage:.2f} V")'''),
         md("## 4. Energy density"),
         code('''
 e = ins.energy_density(vp)
