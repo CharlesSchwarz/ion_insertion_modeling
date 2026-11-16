@@ -1,0 +1,190 @@
+{
+ "ingest": {
+  "working_ion": "Li",
+  "initial_criterion": "Edecomp_rebuilt",
+  "p1_scoring": "P_ox_env_sites_split",
+  "limit": null,
+  "n_materials": 5583,
+  "n_batteries": 2527,
+  "n_pairs": 3056,
+  "n_batteries_initial_changed": 28,
+  "n_structures_fetched": 28,
+  "n_materials_no_mp_summary": null,
+  "envs_source_by_battery": {
+   "computed": 2527
+  },
+  "envs_include_O": true,
+  "n_initial_cation_envs_differ_from_notebook_cache": 0,
+  "n_rows_envs_changed": 43,
+  "n_rows_oxide_type_changed": 11,
+  "n_rows_p1_recomputed": 5583,
+  "n_rows_p1_changed": 362,
+  "n_rows_no_p1_guess": 11,
+  "oxi_oxo_fixed_states": {
+   "P": 5
+  },
+  "n_batteries_oxi_fixed": 1030,
+  "mp_oxi_method": {
+   "Bond Valence Analysis": 5086,
+   "Oxidation State Guess": 286,
+   "none": 211
+  },
+  "n_rows_mp_oxi_accepted": 5086,
+  "n_rows_Edecomp_nan": 4
+ },
+ "transitions": {
+  "limit": null,
+  "n_batteries_in": 2527,
+  "initial_changed": {
+   "policy": "drop",
+   "n_batteries": 0
+  },
+  "battery_filter": {
+   "on": true,
+   "max_eV_per_atom": 0.075,
+   "keep_synthesized": false,
+   "n_batteries_dropped": 268,
+   "n_batteries_kept_as_synthesized": 0
+  },
+  "excluded_batteries": {
+   "mp-1176651_Li": "framework mismatch",
+   "mp-1177832_Li": "framework mismatch",
+   "mp-32471_Li": "framework mismatch",
+   "mp-759136_Li": "framework mismatch"
+  },
+  "battery_drop_reasons": {
+   "every material above 75 meV/atom": 252,
+   "every material above 75 meV/atom, one synthesized": 16,
+   "framework mismatch": 4
+  },
+  "magmom_filter": {
+   "on": true,
+   "elements": [
+    "Fe",
+    "Mn"
+   ],
+   "max_spread_muB": 2.0,
+   "n_initial_materials_above": 1,
+   "dropped": [
+    {
+     "transition_id": "mp-1176481_Li:mp-764870",
+     "mpid_final": "mp-764870",
+     "comp_final": "Li3MnFeCo(PO4)3",
+     "magmom_spread_final": 3.82
+    },
+    {
+     "transition_id": "mp-1176526_Li:mp-1177607",
+     "mpid_final": "mp-1177607",
+     "comp_final": "Li3MnFeCo(PO4)3",
+     "magmom_spread_final": 3.78
+    },
+    {
+     "transition_id": "mp-704299_Li:mp-585319",
+     "mpid_final": "mp-585319",
+     "comp_final": "LiFePO4",
+     "magmom_spread_final": 3.38
+    },
+    {
+     "transition_id": "mp-705201_Li:mp-694615",
+     "mpid_final": "mp-694615",
+     "comp_final": "LiFePO4",
+     "magmom_spread_final": 3.72
+    },
+    {
+     "transition_id": "mp-759292_Li:mp-759292",
+     "mpid_final": "mp-759292",
+     "comp_final": "Li2Fe3(BO3)3",
+     "magmom_spread_final": 3.45
+    },
+    {
+     "transition_id": "mp-759992_Li:mp-1177596",
+     "mpid_final": "mp-1177596",
+     "comp_final": "Li3MnFeCo(PO4)3",
+     "magmom_spread_final": 2.75
+    },
+    {
+     "transition_id": "mp-772533_Li:mp-772533",
+     "mpid_final": "mp-772533",
+     "comp_final": "FePO4F",
+     "magmom_spread_final": 2.37
+    },
+    {
+     "transition_id": "mp-775275_Li:mp-1177012",
+     "mpid_final": "mp-1177012",
+     "comp_final": "Li6Mn3Sb(PO4)6",
+     "magmom_spread_final": 2.7
+    }
+   ]
+  },
+  "bonding_filter": {
+   "on": true,
+   "bond_ratio_max": 1.3,
+   "dropped": [
+    {
+     "transition_id": "mp-1059242_Li:mp-1059242",
+     "mpid_final": "mp-1059242",
+     "comp_final": "ClO"
+    }
+   ]
+  },
+  "n_transitions_built": 2762,
+  "drop_reasons": {
+   "magmom_spread": 8,
+   "nan_edecomp": 6,
+   "missing_p1": 5,
+   "no_cation_anion_bond": 1
+  },
+  "n_transitions": 2742,
+  "n_batteries": 2239,
+  "n_insertion": 1010,
+  "n_removal": 1732,
+  "n_zero_delta_x": 0,
+  "n_above_hull_final": 1109,
+  "frac_above_hull_final": 0.4044,
+  "delta_Edecomp_eV_per_atom": {
+   "count": 2742.0,
+   "mean": 0.0495,
+   "std": 0.0813,
+   "min": 0.0,
+   "25%": 0.0175,
+   "50%": 0.0375,
+   "75%": 0.0632,
+   "max": 3.4413
+  },
+  "n_balance_failed": 0,
+  "n_suspect_redox": 18,
+  "n_no_primary": 0,
+  "primary_couple_counts": {
+   "Mn2+/Mn3+": 309,
+   "V3+/V4+": 272,
+   "Fe2+/Fe3+": 258,
+   "Mn3+/Mn4+": 203,
+   "Co2+/Co3+": 165,
+   "Co3+/Co4+": 154,
+   "Cr3+/Cr4+": 147,
+   "Fe3+/Fe4+": 145,
+   "V4+/V5+": 143,
+   "Ni2+/Ni3+": 142,
+   "Ti3+/Ti4+": 111,
+   "Cr2+/Cr3+": 75,
+   "Cu2+/Cu3+": 63,
+   "Ni3+/Ni4+": 57,
+   "V2+/V3+": 56,
+   "Cu1+/Cu2+": 45,
+   "Bi3+/Bi4+": 36,
+   "Sb3+/Sb4+": 35,
+   "Mo3+/Mo4+": 33,
+   "Nb4+/Nb5+": 31,
+   "Sn2+/Sn3+": 25,
+   "W5+/W6+": 24,
+   "Mn4+/Mn5+": 24,
+   "Mo5+/Mo6+": 16,
+   "W3+/W4+": 16,
+   "Mo4+/Mo5+": 14,
+   "Cr4+/Cr5+": 14,
+   "Sn3+/Sn4+": 13,
+   "Fe4+/Fe5+": 11,
+   "Cr5+/Cr6+": 9
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "features": [
+  "has_polyanion",
+  "delta_p1_score",
+  "nval_d_redox_initial",
+  "delta_li_frac",
+  "site_cn_mean"
+ ],
+ "target": "delta_edecomp",
+ "trained_on": "final",
+ "ion": "Li",
+ "params": {
+  "min_samples_leaf": 1,
+  "max_features": 0.33
+ },
+ "threshold": 0.075,
+ "n_train_rows": 2470,
+ "includes_test": false,
+ "data_fingerprint": "c8ad2d646947b979",
+ "versions": {
+  "ion_insertion_modeling": "0.1.0",
+  "scikit-learn": "1.7.2",
+  "pymatgen": "2025.10.7",
+  "numpy": "2.2.6"
+ }
+}

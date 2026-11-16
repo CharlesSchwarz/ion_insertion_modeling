@@ -36,7 +36,16 @@ environments, and so the oxidation states and features, so a different pymatgen 
 
 ## Data
 
-Full dataset not yet available
+Two things ship with the package, so the quickstart and notebooks run right after install:
+- **The pretrained model** (`load_pretrained()`): the 5-feature random forest predicting ΔE_decomp, trained on the
+  2,011 training electrodes of the Li dataset.
+- **A demo dataset** (`load_demo_dataset()`): 300 randomly chosen training electrodes of the Li dataset (plus olivine
+  LiFePO4), with features, targets, cross-validation folds, structures and competing-phase energies. It has no
+  held-out test electrodes. It is meant for trying the model-building tools; metrics on it are noisier than on the
+  full dataset.
+
+The full dataset (Li, Na, Mg, K) is not yet available. Once it is, `load_dataset("Li")` reads it from the folder in
+`ION_INSERTION_MODELING_DATA`.
 
 ## What is in the package
 
@@ -44,7 +53,7 @@ Full dataset not yet available
 |---|---|---|
 | `oxi_state_inference` | Custom oxidation-state guessing algorithm. Given an oxide crystal structure, or just a list of coordination environments, predict | guess_from_environments(composition, environments), guess_from_framework(composition, structure), guess_from_structure(structure), p_ox(el, ox), p_ox_given_env(el, ox, env), best_ion_content(structure)
 | `featurizers` |  Calculators for a range of feature, based on the matminer `BaseFeaturizer` framework | `FrameworkMagpie`, `PolyanionFlag`, `CompositionMagpie`, `IonRedox`, `OxidationStateProperties`, `FrameworkStructure`, `InsertionSites`, `HullEnergies`, `PaperFeaturizer`; the paper's feature lists in `FEATURE_SETS` |
-| `model_building` | gather data, select features, and train regression models for stability| `load_dataset`, `grouped_split`, `rank_features`, `interpretable_walk`, `cross_validate` (targets `delta_edecomp`, `edecomp`, `eform`), `fit_final`, `TrainedModel`, parity plots |
+| `model_building` | gather data, select features, and train regression models for stability| `load_dataset`, `load_demo_dataset`, `grouped_split`, `rank_features`, `interpretable_walk`, `cross_validate` (targets `delta_edecomp`, `edecomp`, `eform`), `fit_final`, `TrainedModel`, parity plots |
 | `insertion_stability` | predict higher-level properties, like capacity and energy density| `stability_curve`, `predict_capacity`, `predict_capacities`, `predict_voltage_profile`, `predict_energy_density` |
 | `thermo` | thermodynamics helpers| MP2020 GGA/GGA+U hulls, `edecomp_of`, `docs_from_mp` |
 
@@ -74,4 +83,4 @@ Waroquiers et al. (Chem. Mater. 2017; Acta Cryst. B 2020) for the oxidation-stat
 
 ## License
 
-MIT (code). The data release is CC BY 4.0.
+MIT (code). The demo dataset and the data release are CC BY 4.0 (derived from the Materials Project).

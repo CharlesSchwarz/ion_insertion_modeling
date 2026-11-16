@@ -19,8 +19,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings("ignore")
-# Folder holding the data release (Li/, Na/, ..., models/). Set ION_INSERTION_MODELING_DATA to use another place.
-DATA = Path(os.environ.get("ION_INSERTION_MODELING_DATA", "../release"))'''
+'''
 
 
 def md(s):
@@ -49,7 +48,7 @@ from pymatgen.core import Structure
 from ion_insertion_modeling.model_building import load_pretrained
 from ion_insertion_modeling.insertion_stability import predict_capacity
 
-model = load_pretrained(root=DATA)
+model = load_pretrained()  # ships with the package
 structure = Structure.from_file("../tests/data/LiFePO4_mp-19017.cif")
 cap = predict_capacity(structure, edecomp_initial=-0.0082, model=model, x_grid=np.arange(0, 1.51, 0.25))
 print(f"stable range x = {cap.x_lo:g} to {cap.x_hi:g} Li per FePO4, capacity {cap.capacity_mAh_g:.0f} mAh/g")'''),
@@ -195,7 +194,12 @@ def training_notebook():
         md("""
 # Example model training: ΔEdecomp random forest
 
-This walks through how the paper's models are built from the released dataset:
+This walks through how the paper's models are built, on the **demo dataset** that ships with the package: 300
+randomly chosen training electrodes (plus olivine LiFePO4) of the full Li dataset, with every table of the full
+release and no held-out test electrode. The same code runs on the full dataset with `load_dataset("Li")` once the
+data release is downloaded. Numbers on the demo are noisier than, and differ from, the full dataset's.
+
+Steps:
 1. the data and how it was cleaned;
 2. the grouped train/test split, and why rows are never split at random;
 3. feature selection inside each fold;
@@ -206,12 +210,12 @@ The held-out test set is never touched here.
 """),
         code(SETUP),
         code('''
-from ion_insertion_modeling.model_building import (load_dataset, cross_validate, fit_final, rank_features,
+from ion_insertion_modeling.model_building import (load_demo_dataset, cross_validate, fit_final, rank_features,
                                                    interpretable_ranking, interpretable_walk)
 from ion_insertion_modeling.model_building.plots import parity_from_cv
 from ion_insertion_modeling.featurizers import FEATURE_SETS
 
-ds = load_dataset("Li", root=DATA)
+ds = load_demo_dataset()   # full data: load_dataset("Li") after downloading the release
 ds.summary()'''),
         md("""
 ## 1. Data and cleaning
@@ -267,8 +271,8 @@ pred_random = cross_val_predict(make_estimator("rf", min_samples_leaf=1, max_fea
                                 cv=KFold(5, shuffle=True, random_state=0))
 print(f"random row split MAE: {1000 * np.mean(np.abs(pred_random - y)):.1f} meV/atom")'''),
         md("""
-With only five coarse features the random split looks about as good as the grouped CV below (≈25 meV/atom). The
-difference grows with richer, more material-specific features, which let a model recognise a sibling it has seen.
+Compare this with the grouped CV below. With only five coarse features the gap is small; it grows with richer,
+more material-specific features, which let a model recognise a sibling it has seen.
 The grouped split is used throughout so the numbers hold for frameworks the model has never seen.
 
 ## 3. Feature selection inside each fold
@@ -280,7 +284,7 @@ and the two compositions). Within each fold's training rows only:
 - permutation importance on a grouped inner hold-out ranks them;
 - a model with k features uses the top k.
 
-The ranking on all training electrodes:
+The ranking on all (demo) training electrodes:
 """),
         code('''
 cols = list(FEATURE_SETS["reference"])
@@ -300,10 +304,9 @@ five, walk = interpretable_walk(walk_ranking, rows[cols], k=5)
 print(five)
 pd.DataFrame(walk).head(12)'''),
         md("""
-The paper's models keep the five frozen from an earlier version of the walk
-(`has_polyanion, delta_p1_score, nval_d_redox_initial, delta_li_frac, site_cn_mean`). The rerun on the final
-training set agrees on three and picks `mag_initial_mean_NsValence` and `radius_max_delta` for the last two slots;
-the CV difference is within fold noise.
+On a sample this small the walk is noisy, so its picks can differ from the paper's frozen five
+(`has_polyanion, delta_p1_score, nval_d_redox_initial, delta_li_frac, site_cn_mean`), which the rest of this
+notebook uses.
 
 ## 4. Cross-validation
 
@@ -377,7 +380,7 @@ from pymatgen.core import Structure
 from ion_insertion_modeling import oxi_state_inference as oxi, insertion_stability as ins
 from ion_insertion_modeling.model_building import load_pretrained
 
-model = load_pretrained(root=DATA)
+model = load_pretrained()  # ships with the package
 garnet = Structure.from_file("data/disordered_Li7PrMoMnO.cif")
 docs = json.loads(open("data/hull_docs_Li-Mn-Mo-O-Pr.json").read())
 EDECOMP_INITIAL = 0.01364   # eV/atom (MACE estimate, MP2020 GGA/GGA+U scale)

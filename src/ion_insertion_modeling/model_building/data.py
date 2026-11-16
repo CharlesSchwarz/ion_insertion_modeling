@@ -134,13 +134,23 @@ def load_dataset(ion: str = config.DEFAULT_ION, root: str | Path | None = None, 
     return Dataset(ion=ion, root=d, manifest=manifest, **tables)
 
 
+DEMO_DIR = config.PACKAGE_DATA_DIR / "demo"
+
+
+def load_demo_dataset() -> Dataset:
+    """A small sample of the Li dataset shipped with the package: 300 randomly chosen training electrodes (plus
+    olivine LiFePO4), with every table of the full release. It has no held-out test electrodes. Use it to try the
+    model-building tools; metrics on it differ from the full dataset's."""
+    return load_dataset("Li", root=DEMO_DIR)
+
+
 def verify_release(d: Path) -> None:
     """Check file sizes against checksums.json (full SHA-256 check: verify_release_sha)."""
     p = d / "checksums.json"
     if not p.exists():
         return
     meta = json.loads(p.read_text())
-    for name, info in meta["files"].items():
+    for name, info in meta.get("files", {}).items():
         f = d / name
         if f.exists() and f.stat().st_size != info["bytes"]:
             raise OSError(f"{f} does not match the release (size {f.stat().st_size}, expected {info['bytes']})")

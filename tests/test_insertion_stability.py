@@ -51,14 +51,14 @@ def test_edecomp_convention():
     assert thermo.edecomp_of_mpid("c", docs) == pytest.approx(-2.0)        # stable: distance below Li + O
 
 
-@pytest.mark.release
 @pytest.mark.slow
-def test_lifepo4_workflow(li_dataset, lifepo4):
-    """LiFePO4 with the interpretable-five model: stable over x = 0-1, ~170 mAh/g, one step near 3.47 V."""
+def test_lifepo4_workflow(demo_dataset, lifepo4):
+    """LiFePO4 with the pretrained model: stable over x = 0-1, ~170 mAh/g, one step near 3.47 V."""
     from ion_insertion_modeling import insertion_stability as ins
-    from ion_insertion_modeling.model_building import fit_final
+    from ion_insertion_modeling.model_building import load_pretrained
 
-    model = fit_final(li_dataset, "delta_edecomp", "interpretable5")
+    model = load_pretrained()
+    li_dataset = demo_dataset
     grid = [0, 0.25, 0.5, 0.75, 1.0, 1.25]
     cap = ins.predict_capacity(lifepo4, -0.008219, model, x_grid=grid)
     assert (cap.x_lo, cap.x_hi) == (0.0, 1.0)

@@ -1,0 +1,10 @@
+{
+ "ion": "Li",
+ "demo": true,
+ "outlier_batteries": [
+  "mp-787252_Li"
+ ],
+ "n_batteries": 301,
+ "n_transitions": 362,
+ "note": "Random sample of training electrodes from the full release; contains no held-out test electrode. For examples and tests only: metrics on it are not the paper's."
+}

@@ -1,0 +1,2162 @@
+{
+ "fw_cation_mean_Number": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_Number": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_Number": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_MendeleevNumber": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_MendeleevNumber": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_MendeleevNumber": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_AtomicWeight": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_AtomicWeight": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_AtomicWeight": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_MeltingT": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_MeltingT": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_MeltingT": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_Column": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_Column": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_Column": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_Row": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_Row": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_Row": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_CovalentRadius": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_CovalentRadius": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_CovalentRadius": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_Electronegativity": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_Electronegativity": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_Electronegativity": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NsValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NsValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NsValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NpValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NpValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NpValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NdValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NdValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NdValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NfValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NfValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NfValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NValence": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NsUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NsUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NsUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NpUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NpUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NpUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NdUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NdUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NdUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NfUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NfUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NfUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_NUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_NUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_NUnfilled": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_GSvolume_pa": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_GSvolume_pa": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_GSvolume_pa": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_GSbandgap": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_GSbandgap": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_GSbandgap": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_mean_GSmagmom": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_minimum_GSmagmom": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_cation_maximum_GSmagmom": {
+  "group": "cation",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_Number": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_Number": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_Number": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_MendeleevNumber": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_MendeleevNumber": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_MendeleevNumber": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_AtomicWeight": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_AtomicWeight": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_AtomicWeight": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_MeltingT": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_MeltingT": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_MeltingT": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_Column": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_Column": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_Column": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_Row": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_Row": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_Row": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_CovalentRadius": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_CovalentRadius": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_CovalentRadius": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_Electronegativity": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_Electronegativity": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_Electronegativity": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NsValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NsValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NsValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NpValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NpValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NpValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NdValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NdValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NdValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NfValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NfValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NfValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NValence": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NsUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NsUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NsUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NpUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NpUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NpUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NdUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NdUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NdUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NfUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NfUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NfUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_NUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_NUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_NUnfilled": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_GSvolume_pa": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_GSvolume_pa": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_GSvolume_pa": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_GSbandgap": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_GSbandgap": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_GSbandgap": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_mean_GSmagmom": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_minimum_GSmagmom": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "fw_anion_maximum_GSmagmom": {
+  "group": "anion",
+  "level": "battery",
+  "units": "magpie units"
+ },
+ "has_P": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_S": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_Si": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_B": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_C": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_N": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "has_polyanion": {
+  "group": "anion",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "frac_corner_sharing": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "frac_edge_sharing": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "frac_face_sharing": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "poly_vol_ratio": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "framework_vol_per_atom": {
+  "group": "structure",
+  "level": "battery",
+  "units": "\u00c5\u00b3/atom"
+ },
+ "anion_packing_ratio": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "larsen_dimensionality": {
+  "group": "structure",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "sites_per_fu": {
+  "group": "sites",
+  "level": "battery",
+  "units": "sites per framework f.u."
+ },
+ "site_vpv_mean": {
+  "group": "sites",
+  "level": "battery",
+  "units": "\u00c5\u00b3"
+ },
+ "site_vpv_min": {
+  "group": "sites",
+  "level": "battery",
+  "units": "\u00c5\u00b3"
+ },
+ "site_vpv_max": {
+  "group": "sites",
+  "level": "battery",
+  "units": "\u00c5\u00b3"
+ },
+ "site_cn_mean": {
+  "group": "sites",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "site_cn_min": {
+  "group": "sites",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "site_cn_max": {
+  "group": "sites",
+  "level": "battery",
+  "units": "dimensionless"
+ },
+ "site_li_anion_dist_min": {
+  "group": "sites",
+  "level": "battery",
+  "units": "\u00c5"
+ },
+ "site_li_anion_dist_mean": {
+  "group": "sites",
+  "level": "battery",
+  "units": "\u00c5"
+ },
+ "x_initial": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "Li per framework f.u."
+ },
+ "x_final": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "Li per framework f.u."
+ },
+ "delta_x": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "Li per framework f.u."
+ },
+ "li_frac_initial": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "li_frac_final": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "delta_li_frac": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "abs_delta_x": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "Li per framework f.u."
+ },
+ "abs_delta_li_frac": {
+  "group": "ion_conc",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "delta_ox_mean": {
+  "group": "p1",
+  "level": "transition",
+  "units": "e per atom"
+ },
+ "delta_ox_max_abs": {
+  "group": "p1",
+  "level": "transition",
+  "units": "e per atom"
+ },
+ "delta_ox_redox": {
+  "group": "p1",
+  "level": "transition",
+  "units": "e per atom"
+ },
+ "n_couples": {
+  "group": "p1",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "electrons_per_redox_ion": {
+  "group": "p1",
+  "level": "transition",
+  "units": "e\u207b per redox atom"
+ },
+ "p1_score_initial": {
+  "group": "p1",
+  "level": "transition",
+  "units": "P1 score (0-1)"
+ },
+ "p1_score_final": {
+  "group": "p1",
+  "level": "transition",
+  "units": "P1 score (0-1)"
+ },
+ "delta_p1_score": {
+  "group": "p1",
+  "level": "transition",
+  "units": "P1 score (0-1)"
+ },
+ "radius_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "radius_redox_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "\u00c5"
+ },
+ "ie_next_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ie_next_redox_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "nval_s_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_s_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_p_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_d_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_mean_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_mean_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_mean_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_min_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_min_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_min_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_redox_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "nval_f_redox_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "electrons per ion"
+ },
+ "ea_next_max_initial": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ea_next_max_final": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "ea_next_max_delta": {
+  "group": "oxi",
+  "level": "transition",
+  "units": "eV"
+ },
+ "mag_initial_mean_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_Number": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_Number": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_Number": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_Number": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_MendeleevNumber": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_MendeleevNumber": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_MendeleevNumber": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_MendeleevNumber": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_AtomicWeight": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_AtomicWeight": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_AtomicWeight": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_AtomicWeight": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_MeltingT": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_MeltingT": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_MeltingT": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_MeltingT": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_Column": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_Column": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_Column": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_Column": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_Row": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_Row": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_Row": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_Row": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_CovalentRadius": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_CovalentRadius": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_CovalentRadius": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_CovalentRadius": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_Electronegativity": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_Electronegativity": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_Electronegativity": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_Electronegativity": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NsValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NsValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NsValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NsValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NpValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NpValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NpValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NpValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NdValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NdValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NdValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NdValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NfValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NfValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NfValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NfValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NValence": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NValence": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NsUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NsUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NsUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NsUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NpUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NpUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NpUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NpUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NdUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NdUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NdUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NdUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NfUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NfUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NfUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NfUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_NUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_NUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_NUnfilled": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_NUnfilled": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_GSvolume_pa": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_GSvolume_pa": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_GSvolume_pa": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_GSvolume_pa": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_GSbandgap": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_GSbandgap": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_GSbandgap": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_GSbandgap": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_mean_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_mean_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_mean_GSmagmom": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_minimum_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_minimum_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_minimum_GSmagmom": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_initial_maximum_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_final_maximum_GSmagmom": {
+  "group": "mag",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "mag_delta_maximum_GSmagmom": {
+  "group": "mag_delta",
+  "level": "transition",
+  "units": "magpie units"
+ },
+ "rel_vpv_mismatch_initial": {
+  "group": "sites_fit",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "rel_vpv_mismatch_final": {
+  "group": "sites_fit",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "site_fill_initial": {
+  "group": "sites",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "site_fill_final": {
+  "group": "sites",
+  "level": "transition",
+  "units": "dimensionless"
+ },
+ "hull_ef_initial": {
+  "group": "hull",
+  "level": "transition",
+  "units": "eV/atom"
+ },
+ "hull_ef_final": {
+  "group": "hull",
+  "level": "transition",
+  "units": "eV/atom"
+ },
+ "delta_hull_ef": {
+  "group": "hull",
+  "level": "transition",
+  "units": "eV/atom"
+ }
+}

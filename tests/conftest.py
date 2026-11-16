@@ -28,6 +28,14 @@ def li_dataset():
 
 
 @pytest.fixture(scope="session")
+def demo_dataset():
+    """The demo dataset shipped with the package (always available)."""
+    from ion_insertion_modeling.model_building import load_demo_dataset
+
+    return load_demo_dataset()
+
+
+@pytest.fixture(scope="session")
 def p1_golden():
     return json.loads((DATA / "p1_golden.json").read_text())
 

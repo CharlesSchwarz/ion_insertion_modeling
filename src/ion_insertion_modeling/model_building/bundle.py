@@ -56,11 +56,13 @@ class TrainedModel:
 
     def save(self, path: str | Path) -> Path:
         """Write <path>.skops and <path>.json."""
+        import zipfile
+
         import skops.io as sio
 
         path = Path(path).with_suffix("")
         path.parent.mkdir(parents=True, exist_ok=True)
-        sio.dump(self.estimator, path.with_suffix(".skops"))
+        sio.dump(self.estimator, path.with_suffix(".skops"), compression=zipfile.ZIP_DEFLATED, compresslevel=9)
         path.with_suffix(".json").write_text(json.dumps(self.metadata(), indent=1))
         return path.with_suffix(".skops")
 
@@ -81,10 +83,12 @@ class TrainedModel:
 
 
 def load_pretrained(name: str = "interpretable5_delta_Li", root: str | Path | None = None) -> TrainedModel:
-    """The paper's pretrained model (the interpretable-five ΔEdecomp random forest, Li), from the data release
-    folder models/ (config.DATA_CACHE_DIR or `root`)."""
-    base = Path(root) if root is not None else config.DATA_CACHE_DIR
-    for cand in (base / "models" / name, base.parent / "models" / name):
-        if cand.with_suffix(".skops").exists():
-            return TrainedModel.load(cand)
-    raise FileNotFoundError(f"no pretrained model {name!r} under {base}/models (download the release; see README)")
+    """The pretrained interpretable-five ΔEdecomp random forest (Li), fit on the 2,011 training electrodes.
+    Looked up in <root>/models, then the data cache (config.DATA_CACHE_DIR/models), then the copy shipped with the
+    package."""
+    bases = ([Path(root)] if root is not None else []) + [config.DATA_CACHE_DIR, config.PACKAGE_DATA_DIR]
+    for base in bases:
+        for cand in (base / "models" / name, base.parent / "models" / name):
+            if cand.with_suffix(".skops").exists():
+                return TrainedModel.load(cand)
+    raise FileNotFoundError(f"no pretrained model {name!r} (looked in {[str(b) for b in bases]})")

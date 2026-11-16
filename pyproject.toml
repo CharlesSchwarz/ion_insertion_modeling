@@ -44,7 +44,7 @@ Repository = "https://github.com/CharlesSchwarz/ion_insertion_modeling"
 where = ["src"]
 
 [tool.setuptools.package-data]
-ion_insertion_modeling = ["data/*.json", "data/*.csv"]
+ion_insertion_modeling = ["data/*.json", "data/*.csv", "data/demo/Li/*", "data/models/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
