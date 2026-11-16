@@ -427,8 +427,12 @@ envelope of G over the stable range.
 vp = ins.predict_voltage_profile(garnet, EDECOMP_INITIAL, model, docs=docs, x_grid=grid, framework=FRAMEWORK)
 print(vp.steps.round(3))
 fig, ax = plt.subplots(figsize=(5, 3.2))
-for r in vp.steps.itertuples():
+steps = vp.steps.sort_values("x_from").reset_index(drop=True)
+for r in steps.itertuples():
     ax.plot([r.x_from, r.x_to], [r.V, r.V], color="tab:red", lw=2.5)
+for a, b in zip(steps.itertuples(), steps.iloc[1:].itertuples()):  # vertical jump between adjacent steps
+    ax.plot([a.x_to, a.x_to], [a.V, b.V], color="tab:red", lw=1.5)
+ax.set_ylim(bottom=0)
 ax.set_xlabel("x in Li$_x$Pr$_3$Mo$_{1.5}$Mn$_{0.5}$O$_{12}$"); ax.set_ylabel("V vs Li/Li$^+$")
 ax.set_title(f"mean {vp.mean_voltage:.2f} V")'''),
         md("## 4. Energy density"),
