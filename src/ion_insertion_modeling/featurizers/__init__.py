@@ -25,8 +25,8 @@ from ion_insertion_modeling import environments as envs_mod
 from ion_insertion_modeling.featurizers import _composition, _li_redox, _oxi_features, _sites, _structure
 from ion_insertion_modeling.featurizers.transition import Transition
 
-_PAPER_CITATION = ("@article{schwarz_ion_insertion, title = {Predicting the stability of ion-insertion electrode "
-                   "materials on ion insertion and removal}, author = {Schwarz, Charles}, note = {in preparation}}")
+_PAPER_CITATION = ("@article{schwarz_ion_insertion, title = {Interpretable, Data-driven Approaches to Modeling "
+                   "Stability of Insertion Electrodes}, author = {Schwarz, Charles}, note = {in preparation}}")
 _MAGPIE_CITATION = ("@article{ward_magpie_2016, title = {A general-purpose machine learning framework for predicting "
                     "properties of inorganic materials}, author = {Ward, Logan and Agrawal, Ankit and Choudhary, Alok and "
                     "Wolverton, Christopher}, journal = {npj Computational Materials}, volume = {2}, pages = {16028}, "

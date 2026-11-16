@@ -10,7 +10,7 @@ authors:
 # TODO at release: add the Zenodo DOI of this version (doi:) and fill in the paper below.
 preferred-citation:
   type: article
-  title: "Predicting the stability of ion-insertion electrode materials on ion insertion and removal"
+  title: "Interpretable, Data-driven Approaches to Modeling Stability of Insertion Electrodes"
   authors:
     - family-names: Schwarz
       given-names: Charles

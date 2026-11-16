@@ -1,4 +1,4 @@
-"""ion_insertion_modeling: predicting the stability of ion-insertion electrode materials on ion insertion and removal.
+"""ion_insertion_modeling: companion code for "Interpretable, Data-driven Approaches to Modeling Stability of Insertion Electrodes".
 
 Modules
 -------
