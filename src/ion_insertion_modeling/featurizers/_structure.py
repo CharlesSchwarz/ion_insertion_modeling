@@ -1,7 +1,7 @@
 """Group 4: framework structure features of the initial material.
 
 Port of ElectrodeStructureFeaturizer / structure_utility in old_example_code/. The framework is the initial
-structure with Li removed, decorated with the initial material's P1 oxidation states. Cations (P1 state >= 0,
+structure with Li removed, decorated with the initial material's P_ox oxidation states. Cations (P_ox state >= 0,
 polyanion centres included) define the polyhedra; neighbours come from one CrystalNN bonded-structure pass.
 Polyhedron sharing is counted in the unit cell by matching periodic images, instead of the old code's O(n²)
 comparison on a >= 10 Å supercell (same fractions; see tests).
@@ -91,7 +91,7 @@ def poly_vol_ratio(framework: Structure, nbrs: Neighbours) -> float:
 
 
 def anion_packing_ratio(framework: Structure, oxi: dict) -> float:
-    """Σ over anion sites of 4/3·π·r³ (ionic radius at the P1 state, Å) / cell volume. NaN if a radius is missing."""
+    """Σ over anion sites of 4/3·π·r³ (ionic radius at the P_ox state, Å) / cell volume. NaN if a radius is missing."""
     vol = 0.0
     for site in framework:
         el = site.specie.element.symbol

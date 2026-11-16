@@ -16,7 +16,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Chemistry",
     "Topic :: Scientific/Engineering :: Physics",
 ]
-# Pinned to the versions behind the paper: ChemEnv environments (and so P1 states and the features) depend on the
+# Pinned to the versions behind the paper: ChemEnv environments (and so P_ox states and the features) depend on the
 # pymatgen version, and saved models on the scikit-learn version.
 dependencies = [
     "numpy==2.2.6",

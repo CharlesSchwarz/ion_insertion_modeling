@@ -1,7 +1,7 @@
 {
  "interpretable5": [
   "has_polyanion",
-  "delta_p1_score",
+  "delta_p_ox_score",
   "nval_d_redox_initial",
   "delta_li_frac",
   "site_cn_mean"
@@ -267,7 +267,7 @@
   "mag_initial_maximum_GSmagmom",
   "mag_final_maximum_GSmagmom"
  ],
- "magpie_p1": [
+ "magpie_p_ox": [
   "fw_cation_mean_Number",
   "fw_cation_minimum_Number",
   "fw_cation_maximum_Number",
@@ -406,9 +406,9 @@
   "delta_ox_redox",
   "n_couples",
   "electrons_per_redox_ion",
-  "p1_score_initial",
-  "p1_score_final",
-  "delta_p1_score",
+  "p_ox_score_initial",
+  "p_ox_score_final",
+  "delta_p_ox_score",
   "mag_initial_mean_Number",
   "mag_final_mean_Number",
   "mag_initial_minimum_Number",
@@ -815,7 +815,7 @@
   "site_fill_initial",
   "site_fill_final"
  ],
- "magpie_struct_p1": [
+ "magpie_struct_p_ox": [
   "fw_cation_mean_Number",
   "fw_cation_minimum_Number",
   "fw_cation_maximum_Number",
@@ -970,9 +970,9 @@
   "delta_ox_redox",
   "n_couples",
   "electrons_per_redox_ion",
-  "p1_score_initial",
-  "p1_score_final",
-  "delta_p1_score",
+  "p_ox_score_initial",
+  "p_ox_score_final",
+  "delta_p_ox_score",
   "mag_initial_mean_Number",
   "mag_final_mean_Number",
   "mag_initial_minimum_Number",
@@ -1998,7 +1998,7 @@
   "site_fill_initial",
   "site_fill_final"
  ],
- "magpie_conc_oxi_p1": [
+ "magpie_conc_oxi_p_ox": [
   "fw_cation_mean_Number",
   "fw_cation_minimum_Number",
   "fw_cation_maximum_Number",
@@ -2145,9 +2145,9 @@
   "delta_ox_redox",
   "n_couples",
   "electrons_per_redox_ion",
-  "p1_score_initial",
-  "p1_score_final",
-  "delta_p1_score",
+  "p_ox_score_initial",
+  "p_ox_score_final",
+  "delta_p_ox_score",
   "radius_mean_initial",
   "radius_mean_final",
   "radius_mean_delta",
@@ -2867,9 +2867,9 @@
   "delta_ox_redox",
   "n_couples",
   "electrons_per_redox_ion",
-  "p1_score_initial",
-  "p1_score_final",
-  "delta_p1_score",
+  "p_ox_score_initial",
+  "p_ox_score_final",
+  "delta_p_ox_score",
   "radius_mean_initial",
   "radius_mean_final",
   "radius_mean_delta",
@@ -3205,7 +3205,7 @@
   "has_N",
   "x_final",
   "li_frac_final",
-  "p1_score_final",
+  "p_ox_score_final",
   "radius_mean_final",
   "radius_min_final",
   "radius_max_final",

@@ -5,9 +5,9 @@ import pytest
 from ion_insertion_modeling import oxi_state_inference as oxi
 
 
-def test_reproduces_stored_p1_guesses(p1_golden):
-    """P1 from composition + environments reproduces the stored guesses and scores of the released dataset exactly."""
-    for r in p1_golden:
+def test_reproduces_stored_p_ox_guesses(p_ox_golden):
+    """P_ox from composition + environments reproduces the stored guesses and scores of the released dataset exactly."""
+    for r in p_ox_golden:
         g = oxi.guess_from_environments(r["comp"], r["envs"], oxide_type=r["oxide_type"], fixed=r["fixed"] or None)
         assert g is not None, r["mpid"]
         assert set(g.states) == set(r["states"]), r["mpid"]
@@ -75,12 +75,12 @@ def test_guess_from_structure_lifepo4(lifepo4):
 
 @pytest.mark.slow
 def test_guess_from_framework_matches_stored(lifepo4, feature_golden):
-    """FePO4 scored on the LiFePO4 environments gives the stored final P1 guess and score."""
+    """FePO4 scored on the LiFePO4 environments gives the stored final P_ox guess and score."""
     rec = next(r for r in feature_golden if r["transition_id"].startswith("mp-20361_Li"))
     g = oxi.guess_from_framework(rec["comp_final"], lifepo4)
     for el, v in rec["oxi_final"].items():
         assert g.states[el] == pytest.approx(v)
-    assert g.score == pytest.approx(rec["p1_score_final"], abs=1e-9)
+    assert g.score == pytest.approx(rec["p_ox_score_final"], abs=1e-9)
 
 
 @pytest.mark.slow

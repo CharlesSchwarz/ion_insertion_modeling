@@ -91,7 +91,7 @@ class CVResult:
     """Out-of-fold predictions of one model configuration.
 
     predictions: one row per evaluated transition × n_features × fold: transition_id, battery_id, Edecomp_initial,
-        Edecomp_final_true, Edecomp_final_pred (eV/atom; +inf for finals P1 could not assign: predicted unstable),
+        Edecomp_final_true, Edecomp_final_pred (eV/atom; +inf for finals P_ox could not assign: predicted unstable),
         scored_by ("model" or "assumed_unstable"), n_features, context (fold).
     row_predictions: the target itself per evaluated row (y_true, y_pred).
     selection: per fold, the ranking and per-k features and tuned parameters.

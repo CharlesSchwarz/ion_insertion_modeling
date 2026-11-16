@@ -20,9 +20,9 @@ DEFAULT_ION = "Li"
 # --- Coordination environments (ChemEnv) ---------------------------------------------------------------------------
 ENV_DISTANCE_CUTOFFS = (1.4, 1.0)  # second value is the fallback when any environment comes back UNKNOWN
 ENV_ANGLE_CUTOFF = 0.3
-ENV_INCLUDE_O = True  # keep O environments (P1 scoring skips them: O is fixed at -2 and scores 1)
+ENV_INCLUDE_O = True  # keep O environments (P_ox scoring skips them: O is fixed at -2 and scores 1)
 
-# --- Oxidation states (P1 guesser) ----------------------------------------------------------------------------------
+# --- Oxidation states (P_ox guesser) ----------------------------------------------------------------------------------
 SPECIES_DATA = PACKAGE_DATA_DIR / "species_data.json"  # ICSD statistics: P(ox|el), P(env|ox), P(env|el)
 OXI_STATE_OVERRIDES = {"H": [1], "Li": [1], "F": [-1], "Na": [1], "Mg": [2], "Al": [3], "K": [1], "Ca": [2], "Zn": [2]}
 OXI_GUESS_MAX_ATOMS = 40  # pymatgen enumerates all states below this cell size, common states above
@@ -32,7 +32,7 @@ OXI_OXO_FIXED_STATES = {"P": 5}  # fixed when every site of the element bonds on
 OXO_SHELL_TOL = 0.25  # first shell = neighbours within (1 + tol) x nearest-neighbour distance
 OXO_SEARCH_RADIUS = 3.5  # Å
 OXI_DATA_SOURCE = "Waroquiers"  # P(ox|el) table: "Waroquiers", "Davies" or "PMG"
-P1_SCORING = "P_ox_env_sites_split"  # the paper's P1 score
+P_OX_SCORING = "P_ox_env_sites_split"  # the paper's P_ox score
 
 # --- Polyanions and features ----------------------------------------------------------------------------------------
 POLYANION_ELEMENTS = ("P", "S", "Si", "B", "C", "N")
@@ -48,7 +48,7 @@ OXI_INTEGER_EPS = 1e-6
 ELECTRON_BALANCE_TOL = 0.05  # e⁻ per framework f.u.
 SUSPECT_REDOX_ELEMENTS = ("H", "B", "C", "N", "Si", "P", "S", "Cl", "F", "Al", "Sc", "Y", "La")
 FRAMEWORK_TOL = 1e-4  # max relative disagreement in framework formula units between elements of one composition
-# Column-name patterns no feature may contain (targets, energies, non-P1 oxidation states)
+# Column-name patterns no feature may contain (targets, energies, non-P_ox oxidation states)
 FORBIDDEN_FEATURE_PATTERNS = ("voltage", "vbar", "edecomp", "energy_above", "ehull", "above_hull", "pmg_oxi", "mp_oxi")
 
 # --- Targets, splits, models ----------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ RF_N_ESTIMATORS = 300
 RF_GRID = {"min_samples_leaf": [1, 3, 5], "max_features": [0.33, 0.66, 1.0]}  # tuned by inner grouped CV
 SELECT_PRESELECT = 40  # candidates kept by RF impurity importance before permutation ranking
 SELECT_HOLDOUT = 0.2  # fraction of training batteries held out for permutation importance
-INTERPRETABLE_FEATURES = ("has_polyanion", "delta_p1_score", "nval_d_redox_initial", "delta_li_frac", "site_cn_mean")
+INTERPRETABLE_FEATURES = ("has_polyanion", "delta_p_ox_score", "nval_d_redox_initial", "delta_li_frac", "site_cn_mean")
 
 # --- Capacity, voltage ----------------------------------------------------------------------------------------------
 CAPACITY_CONTIGUOUS = True  # the stable range is the unbroken run containing the initial material

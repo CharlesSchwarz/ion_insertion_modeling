@@ -2,7 +2,7 @@
  "ingest": {
   "working_ion": "Li",
   "initial_criterion": "Edecomp_rebuilt",
-  "p1_scoring": "P_ox_env_sites_split",
+  "p_ox_scoring": "P_ox_env_sites_split",
   "limit": null,
   "n_materials": 5583,
   "n_batteries": 2527,
@@ -17,9 +17,9 @@
   "n_initial_cation_envs_differ_from_notebook_cache": 0,
   "n_rows_envs_changed": 43,
   "n_rows_oxide_type_changed": 11,
-  "n_rows_p1_recomputed": 5583,
-  "n_rows_p1_changed": 362,
-  "n_rows_no_p1_guess": 11,
+  "n_rows_p_ox_recomputed": 5583,
+  "n_rows_p_ox_changed": 362,
+  "n_rows_no_p_ox_guess": 11,
   "oxi_oxo_fixed_states": {
    "P": 5
   },
@@ -131,7 +131,7 @@
   "drop_reasons": {
    "magmom_spread": 8,
    "nan_edecomp": 6,
-   "missing_p1": 5,
+   "missing_p_ox": 5,
    "no_cation_anion_bond": 1
   },
   "n_transitions": 2742,

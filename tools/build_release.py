@@ -27,10 +27,59 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+# The research pipeline calls the oxidation-state score "P1"; the package calls it P_ox.
+COLUMN_RENAMES = {"P1_oxi_state_guess": "P_ox_guess", "P1_score": "P_ox_score",
+                  "p1_score_initial": "p_ox_score_initial", "p1_score_final": "p_ox_score_final",
+                  "delta_p1_score": "delta_p_ox_score"}
+VALUE_RENAMES = {"missing_p1": "missing_p_ox"}
+GROUP_RENAMES = {"p1": "p_ox"}
+
+
+def apply_renames(out: Path) -> None:
+    """Rename the research pipeline's P1 columns, values and feature group in every table of `out`, and refresh
+    the file entries of checksums.json if it exists."""
+    import pandas as pd
+
+    for p in sorted(out.glob("*.parquet")):
+        d = pd.read_parquet(p)
+        new = d.rename(columns=COLUMN_RENAMES)
+        for c in new.columns:
+            if new[c].dtype == object and new[c].isin(list(VALUE_RENAMES)).any():
+                new[c] = new[c].replace(VALUE_RENAMES)
+        if not new.equals(d) or list(new.columns) != list(d.columns):
+            new.to_parquet(p, index=False)
+    man_p = out / "manifest.json"
+    if man_p.exists():
+        man = json.loads(man_p.read_text())
+        man = {COLUMN_RENAMES.get(c, c): {**m, "group": GROUP_RENAMES.get(m["group"], m["group"]),
+                                          "units": str(m.get("units", "")).replace("P1 score", "P_ox score")}
+               for c, m in man.items()}
+        man_p.write_text(json.dumps(man, indent=1))
+    log_p = out / "cleaning_log.json"
+    if log_p.exists():
+        t = log_p.read_text()
+        for a, b in {**VALUE_RENAMES, "p1_scoring": "p_ox_scoring", "n_rows_p1_": "n_rows_p_ox_", "no_p1_guess": "no_p_ox_guess"}.items():
+            t = t.replace(a, b)
+        log_p.write_text(t)
+    ck = out / "checksums.json"
+    if ck.exists():
+        meta = json.loads(ck.read_text())
+        if "files" in meta:
+            meta["files"] = {p.name: {"sha256": sha256(p), "bytes": p.stat().st_size}
+                             for p in sorted(out.iterdir()) if p.name != "checksums.json"}
+            ck.write_text(json.dumps(meta, indent=1))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--rename-only", action="store_true", help="only apply the P1 -> P_ox renames to <out>/<ion>/")
     args = ap.parse_args()
+    if args.rename_only:
+        for d in sorted(p for p in args.out.iterdir() if p.is_dir() and p.name != "models"):
+            apply_renames(d)
+            print("renamed", d)
+        return
     sys.path.insert(0, str(Path.cwd() / "src"))
     from voltage import benchmark, capacity, config, transitions  # noqa: E402
     from voltage.io import read_parquet  # noqa: E402
@@ -51,7 +100,7 @@ def main() -> None:
     man = {c: m for c, m in tr["manifest"].items() if m["group"] not in ("oxi_pmg", "cgcnn")}
     (out / "manifest.json").write_text(json.dumps(man, indent=1))
 
-    # Materials (P1 states, environments) and initial structures
+    # Materials (P_ox states, environments) and initial structures
     m = drop(read_parquet(config.INTERIM_DIR / "materials.parquet"))
     stab = read_parquet(config.EDECOMP_INTERIM_DIR / "stability.parquet")[["battery_id", "mpid", "Edecomp", "Edecomp_mp"]]
     keep = ["battery_id", "mpid", "comp", "framework_formula", "oxide_type", "envs", "oxo_bonded", "oxi_fixed",
@@ -87,6 +136,7 @@ def main() -> None:
         with open(config.MIXED_ENERGIES, "rb") as f, gzip.open(out / "hull_docs.json.gz", "wb") as g:
             shutil.copyfileobj(f, g)
 
+    apply_renames(out)
     files = sorted(p for p in out.iterdir() if p.name != "checksums.json")
     meta = {"ion": ion, "files": {p.name: {"sha256": sha256(p), "bytes": p.stat().st_size} for p in files},
             "n_batteries": int(len(tr["bsplit"])), "n_test_batteries": int(tr["bsplit"].is_test.sum()),

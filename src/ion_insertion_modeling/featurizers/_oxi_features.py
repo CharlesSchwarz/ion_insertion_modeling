@@ -1,9 +1,9 @@
 """Group 3: oxidation-state-dependent cation features at both ends of a transition.
 
-Ionic radius (Å) and next ionization energy IE_next (eV) of each framework cation at its P1 oxidation state,
+Ionic radius (Å) and next ionization energy IE_next (eV) of each framework cation at its P_ox oxidation state,
 computed at the initial and final material; delta = final − initial (so Li insertion, which reduces, gives a
 positive radius delta for the redox element).
-Framework cations are the framework elements with P1 state > 0 at that end (Li is not in the framework).
+Framework cations are the framework elements with P_ox state > 0 at that end (Li is not in the framework).
 """
 import math
 from functools import lru_cache
@@ -80,7 +80,7 @@ def endpoint_stats(oxi: dict, framework_formula: str, redox_element: str | None)
 
 
 def redox_element(couples: list[dict]) -> str | None:
-    """Element of the primary P1 couple (Stage 3 rule), or None if no oxidising couple."""
+    """Element of the primary P_ox couple (Stage 3 rule), or None if no oxidising couple."""
     label = redox.primary_couple(couples)
     return next((c["element"] for c in couples if c["label"] == label), None)
 
@@ -98,7 +98,7 @@ def oxi_features(oxi_initial: dict, oxi_final: dict, framework_formula: str, cou
     return out
 
 
-# --- s/p/d/f valence electrons at the P1 state (Draft 4, decided 2026-10-19; also group oxi) ---
+# --- s/p/d/f valence electrons at the P_ox state (Draft 4, decided 2026-10-19; also group oxi) ---
 SHELLS = ("s", "p", "d", "f")
 REMOVAL_ORDER = ("p", "s", "d", "f")  # outer np, then ns, then (n-1)d, then (n-2)f
 ADDITION_ORDER = (("s", 2), ("p", 6))  # anions (ox < 0): fill ns, then np (Au− 6s2, Bi3− 6p6); d and f unchanged
@@ -147,7 +147,7 @@ def _ion_valence_int(el: str, ox: int) -> tuple[float, ...]:
 
 
 def ion_valence(el: str, ox: float) -> dict[str, float]:
-    """{shell: electrons} of el at P1 state ox: the neutral atom's Magpie counts minus ox electrons, removed in
+    """{shell: electrons} of el at P_ox state ox: the neutral atom's Magpie counts minus ox electrons, removed in
     REMOVAL_ORDER (Fe3+ d5, Pb2+ s2 d10 f14, Ce4+ f0), or plus |ox| for an anion in ADDITION_ORDER (Sb3− s2 p6 d10).
     Fractional ox interpolates linearly between floor and ceil."""
     lo, hi = math.floor(ox + 1e-9), math.ceil(ox - 1e-9)
@@ -157,8 +157,8 @@ def ion_valence(el: str, ox: float) -> dict[str, float]:
 
 
 def valence_stats(oxi: dict, framework_formula: str, redox_el: str | None) -> dict[str, float]:
-    """{shell}_{mean|min|max|redox} at one end: amount-weighted mean, min, max over framework cations (P1 state > 0;
-    any NaN makes the stat NaN) and the redox element's count at its P1 state, also when that state is 0 or negative
+    """{shell}_{mean|min|max|redox} at one end: amount-weighted mean, min, max over framework cations (P_ox state > 0;
+    any NaN makes the stat NaN) and the redox element's count at its P_ox state, also when that state is 0 or negative
     (anion redox, e.g. Bi3−/Bi2−); NaN if None or not in the framework."""
     amounts = redox.element_amounts(framework_formula)
     cations = [el for el in sorted(amounts) if float(oxi[el]) > 0]
@@ -204,7 +204,7 @@ def ea_next(el: str, ox: float) -> float:
 
 
 def ea_max(oxi: dict, framework_formula: str, excluded=config.EA_EXCLUDED_ELEMENTS) -> float:
-    """Largest next electron affinity (eV) over the framework cations that can be reduced (P1 state > 0, element not in
+    """Largest next electron affinity (eV) over the framework cations that can be reduced (P_ox state > 0, element not in
     `excluded`): the most easily reduced cation. NaN if there is none."""
     amounts = redox.element_amounts(framework_formula)
     vals = [ea_next(el, float(oxi[el])) for el in amounts if float(oxi[el]) > 0 and el not in excluded]

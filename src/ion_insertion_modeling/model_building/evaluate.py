@@ -1,7 +1,7 @@
 """Regression and classification metrics of predicted Edecomp (eV/atom; *_meV copies in meV/atom).
 
 The classification is derived from the regression: a material is predicted unstable if Ê_final > threshold
-(config.ABOVE_HULL_THRESHOLD = 75 meV/atom). Materials P1 could not assign get Ê = +inf: no energy error, and they
+(config.ABOVE_HULL_THRESHOLD = 75 meV/atom). Materials P_ox could not assign get Ê = +inf: no energy error, and they
 count as predicted unstable.
 """
 import numpy as np

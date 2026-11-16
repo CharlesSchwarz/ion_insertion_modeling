@@ -1,4 +1,4 @@
-"""P1 oxidation-state inference: pick the charge-balanced oxidation-state assignment that is most probable given the
+"""P_ox oxidation-state inference: pick the charge-balanced oxidation-state assignment that is most probable given the
 cation coordination environments.
 
 Candidates are pymatgen's charge-balanced guesses (all oxidation states, on the largest multiple of the reduced
@@ -6,7 +6,7 @@ formula below config.OXI_GUESS_MAX_ATOMS atoms), with O fixed at -2 in oxides, t
 config.OXI_STATE_OVERRIDES fixed (Li+, Na+, Mg2+, F-, ...) and P fixed at +5 when every P site bonds only to O.
 Each candidate is scored with ICSD statistics of P(ox | env, el) over the cation environments, and the best one wins.
 
-The paper's score (config.P1_SCORING = "P_ox_env_sites_split"): the geometric mean of P(ox | env, el) over every
+The paper's score (config.P_OX_SCORING = "P_ox_env_sites_split"): the geometric mean of P(ox | env, el) over every
 cation environment entry, weighted by its site count. An element with a fractional average state (Mn 2.29+) is scored
 by the better of (a) the geometric interpolation between the neighbouring integers and (b) its best split over its
 sites into the two adjacent integers (Mn3+ in some environments, Mn2+ in others), with charge balance fixing how
@@ -37,7 +37,6 @@ SCORING_MAP = {
     "P_ox_env_avg": {"use_environment": True,  "mixing_method": "average",   "averaging_method": "product"},
     "P_ox_env":     {"use_environment": True,  "mixing_method": "geometric", "averaging_method": "geometric"},
     "P4":           {"use_environment": True,  "mixing_method": "geometric", "averaging_method": "product"},
-    "P1":           {"use_environment": True,  "mixing_method": "geometric", "averaging_method": "geometric"},
     "P_ox_env_sites": {"use_environment": True, "mixing_method": "geometric", "averaging_method": "site_weighted"}, # Geometric mean weighted by each environment entry's site count, so an element on many sites
     # P_ox_env_sites, but an element with a fractional average state is scored by its best split over its sites into
     # the two adjacent integers (split_log_score); Draft 7 rerun, Charlie 2026-11-11.
@@ -248,7 +247,7 @@ def fractional_fallback_guesses(comp: Composition, overrides: dict) -> list[Stat
     """Guesses for a composition the enumeration could not balance: one per non-fixed element e, in which e takes
     the (possibly fractional) average state that balances the charge and every other non-fixed element its most
     probable integer state. Kept only if e's average lies within its known oxidation states (pymatgen
-    Element.oxidation_states). P1 scoring then picks among them with the coordination environments."""
+    Element.oxidation_states). P_ox scoring then picks among them with the coordination environments."""
     fixed = {str(el): overrides[str(el)][0] for el in comp.elements if str(el) in overrides}
     free = [str(el) for el in comp.elements if str(el) not in fixed]
     common = {el: most_probable_state(el) for el in free}
@@ -299,7 +298,7 @@ def get_pmg_oxi_state_guesses(formula: str, oxide_type: str | None = None,
 
 def candidate_guesses(formula: str, oxide_type: str | None, fallback: bool = config.OXI_FRACTIONAL_FALLBACK,
                       fixed: dict[str, int] | None = None) -> tuple[list[States], States | None]:
-    """(P1 candidates, pymatgen's first enumerated guess). The candidates are get_pmg_oxi_state_guesses with the
+    """(P_ox candidates, pymatgen's first enumerated guess). The candidates are get_pmg_oxi_state_guesses with the
     fallback switch and the fixed states; the first guess never comes from the fallback or the fixed states (it is
     PMG_oxi_state_guess, which feeds only the oxi_pmg ablation, spec.md §5)."""
     enumerated = get_pmg_oxi_state_guesses(formula, oxide_type, fallback=False)
@@ -312,7 +311,7 @@ def candidate_guesses(formula: str, oxide_type: str | None, fallback: bool = con
 
 
 def get_best_guess_and_score(envs: list, all_guesses: list[States] | None,
-                             scoring: str = config.P1_SCORING,
+                             scoring: str = config.P_OX_SCORING,
                              data_source: str = config.OXI_DATA_SOURCE) -> tuple[States | None, float | None]:
     """Highest-scoring guess and its score; (None, None) if there are no guesses."""
     if scoring not in SCORING_MAP:
@@ -323,9 +322,9 @@ def get_best_guess_and_score(envs: list, all_guesses: list[States] | None,
     return max(scored, key=lambda x: x[1])
 
 
-def p1_guess(envs: list | None, pmg_guesses: list[States] | None,
-             scoring: str = config.P1_SCORING) -> tuple[States | None, float | None]:
-    """P1 guess and score (P1_oxi_state_guess, P1_score); (None, None) without guesses or envs.
+def p_ox_guess(envs: list | None, pmg_guesses: list[States] | None,
+             scoring: str = config.P_OX_SCORING) -> tuple[States | None, float | None]:
+    """P_ox guess and score (P_ox_guess, P_ox_score); (None, None) without guesses or envs.
     O entries are skipped: O always scores 1, so they would only dilute the score, never change the guess."""
     if isinstance(pmg_guesses, list) and len(pmg_guesses) > 0 and isinstance(envs, list):
         scored_envs = [e for e in envs if str(e[0]) != "O"]
@@ -340,10 +339,10 @@ def p1_guess(envs: list | None, pmg_guesses: list[States] | None,
 # =====================================================================================================================
 @dataclass(frozen=True)
 class OxiGuess:
-    """Result of the P1 guesser.
+    """Result of the P_ox guesser.
 
     states: element -> average oxidation state (fractional for mixed valence, e.g. {"Fe": 2.6667, "O": -2}).
-    score: P1 score of `states` (0-1).
+    score: P_ox score of `states` (0-1).
     candidates: every charge-balanced candidate with its score, best first (ties keep pymatgen's order).
     environments: (element, ChemEnv symbol, site count) entries the score used (O and fixed-state elements left out).
     fixed: states fixed by rule (O = -2 in oxides, oxo-bonded P = +5, plus anything passed in).
@@ -366,7 +365,7 @@ class OxiGuess:
 
 def p_ox(el: str, ox: float, data_source: str = config.OXI_DATA_SOURCE, mixing_method: str = "geometric") -> float:
     """P(ox | el) from the ICSD statistics. A fractional `ox` is mixed from the neighbouring integers (geometric
-    interpolation by default, as in the P1 score). Fixed-state elements (config.OXI_STATE_OVERRIDES) give 1 at
+    interpolation by default, as in the P_ox score). Fixed-state elements (config.OXI_STATE_OVERRIDES) give 1 at
     their state."""
     return float(prob_ox(el, ox, data_source=data_source, mixing_method=mixing_method))
 
@@ -388,9 +387,9 @@ def _scored_envs(environments) -> list[list]:
     return [list(e) for e in envs_mod.clean_environments(environments) if str(e[0]) != "O"]
 
 
-def score_guess(states: dict[str, float], environments, scoring: str = config.P1_SCORING,
+def score_guess(states: dict[str, float], environments, scoring: str = config.P_OX_SCORING,
                 data_source: str = config.OXI_DATA_SOURCE) -> float:
-    """P1 score (0-1) of an oxidation-state assignment on the given environments. O and fixed-state elements
+    """P_ox score (0-1) of an oxidation-state assignment on the given environments. O and fixed-state elements
     score 1 and are left out."""
     if scoring not in SCORING_MAP:
         raise ValueError(f"unknown scoring {scoring!r}; choose from {list(SCORING_MAP)}")
@@ -405,9 +404,9 @@ def _composition_formula(composition) -> str:
 
 
 def guess_from_environments(composition, environments, oxide_type: str = "oxide", fixed: dict[str, int] | None = None,
-                            scoring: str = config.P1_SCORING, fallback: bool = config.OXI_FRACTIONAL_FALLBACK,
+                            scoring: str = config.P_OX_SCORING, fallback: bool = config.OXI_FRACTIONAL_FALLBACK,
                             data_source: str = config.OXI_DATA_SOURCE) -> OxiGuess | None:
-    """P1 guess for a composition scored on a list of coordination environments.
+    """P_ox guess for a composition scored on a list of coordination environments.
 
     composition: formula or Composition (fractional amounts allowed: scaled to integers first).
     environments: [(element, ChemEnv symbol, site count), ...], e.g. from environments_from_structure, or
@@ -432,7 +431,7 @@ def guess_from_environments(composition, environments, oxide_type: str = "oxide"
 
 
 def framework_constraints(structure: Structure) -> tuple[list, dict[str, int]]:
-    """(cleaned ChemEnv environments, rule-fixed states) of a structure: the inputs P1 takes from a structure.
+    """(cleaned ChemEnv environments, rule-fixed states) of a structure: the inputs P_ox takes from a structure.
     Fixed states: config.OXI_OXO_FIXED_STATES for elements whose every site bonds only to O (P -> +5)."""
     s = structure.copy()
     s.remove_oxidation_states()
@@ -441,8 +440,8 @@ def framework_constraints(structure: Structure) -> tuple[list, dict[str, int]]:
 
 
 def guess_from_framework(composition, framework_structure: Structure, oxide_type: str = "oxide",
-                         scoring: str = config.P1_SCORING, **kwargs) -> OxiGuess | None:
-    """P1 guess for `composition` scored on the environments of another structure of the same framework, usually
+                         scoring: str = config.P_OX_SCORING, **kwargs) -> OxiGuess | None:
+    """P_ox guess for `composition` scored on the environments of another structure of the same framework, usually
     the initial (pristine) material when `composition` is a lithiated or delithiated state of it. This is how
     every final material is assigned in the paper: changing the ion content is assumed to leave the other ions'
     environments unchanged, and the final material's own structure is never needed."""
@@ -451,9 +450,9 @@ def guess_from_framework(composition, framework_structure: Structure, oxide_type
                                    **kwargs)
 
 
-def guess_from_structure(structure: Structure, oxide_type: str = "oxide", scoring: str = config.P1_SCORING,
+def guess_from_structure(structure: Structure, oxide_type: str = "oxide", scoring: str = config.P_OX_SCORING,
                          **kwargs) -> OxiGuess | None:
-    """P1 guess for a structure, ordered or disordered (partial occupancies: ChemEnv counts each species of a
+    """P_ox guess for a structure, ordered or disordered (partial occupancies: ChemEnv counts each species of a
     mixed site by its occupancy, and the formula is scaled to integers before candidates are enumerated).
     Oxidation states already on the structure are ignored."""
     s = structure.copy()
@@ -470,8 +469,8 @@ def default_framework(structure: Structure, ion: str = config.DEFAULT_ION) -> st
 
 
 def scan_ion_content(structure: Structure, x_grid, ion: str = config.DEFAULT_ION, framework_formula: str | None = None,
-                     oxide_type: str = "oxide", scoring: str = config.P1_SCORING) -> pd.DataFrame:
-    """P1 guess and score of ion_x + framework for each x in x_grid, on the environments and fixed states of
+                     oxide_type: str = "oxide", scoring: str = config.P_OX_SCORING) -> pd.DataFrame:
+    """P_ox guess and score of ion_x + framework for each x in x_grid, on the environments and fixed states of
     `structure`. x is ions per framework formula unit (default framework: default_framework; pass e.g.
     "Pr3Mn0.5Mo1.5O12" to count x per 12 O instead). ChemEnv runs once.
     Columns: x, formula, states (None if nothing balances), score (NaN then), is_best (highest score; ties go to
@@ -493,8 +492,8 @@ def scan_ion_content(structure: Structure, x_grid, ion: str = config.DEFAULT_ION
 
 def best_ion_content(structure: Structure, x_grid=None, ion: str = config.DEFAULT_ION,
                      framework_formula: str | None = None, oxide_type: str = "oxide",
-                     scoring: str = config.P1_SCORING) -> tuple[float | None, OxiGuess | None, pd.DataFrame]:
-    """The ion content x (ions per framework f.u.) whose composition gets the highest P1 score on the structure's
+                     scoring: str = config.P_OX_SCORING) -> tuple[float | None, OxiGuess | None, pd.DataFrame]:
+    """The ion content x (ions per framework f.u.) whose composition gets the highest P_ox score on the structure's
     environments: (x_best, its OxiGuess, the scan table from scan_ion_content). Useful for a disordered or
     hypothetical framework whose ion content is not known. Default grid: 0 to 2·x0 (or 0-2 when the structure has
     no ion) in steps of config.X_STEP, where x0 is the structure's own ion content."""

@@ -11,7 +11,7 @@ from ion_insertion_modeling.featurizers import (FEATURE_SETS, IonRedox, PaperFea
 
 def _transition(r):
     return Transition.from_states(Structure.from_dict(r["structure"]), r["comp_final"], r["oxi_initial"],
-                                  r["oxi_final"], r["p1_score_initial"], r["p1_score_final"],
+                                  r["oxi_final"], r["p_ox_score_initial"], r["p_ox_score_final"],
                                   comp_initial=r["comp_initial"], framework_formula=r["framework_formula"],
                                   oxo_bonded=r["oxo_bonded"])
 
@@ -62,7 +62,7 @@ def test_featurize_dataframe(feature_golden):
     r = feature_golden[0]
     df = pd.DataFrame({"transition": [_transition(r)]})
     out = IonRedox().featurize_dataframe(df, "transition", pbar=False)
-    assert out["delta_p1_score"].iloc[0] == pytest.approx(r["features"]["delta_p1_score"])
+    assert out["delta_p_ox_score"].iloc[0] == pytest.approx(r["features"]["delta_p_ox_score"])
 
 
 def test_featurize_rejects_other_inputs():
@@ -72,7 +72,7 @@ def test_featurize_rejects_other_inputs():
 
 @pytest.mark.slow
 def test_from_structure_matches_from_states(lifepo4, feature_golden):
-    """Transition.from_structure (ChemEnv + P1 from scratch) gives the same interpretable features."""
+    """Transition.from_structure (ChemEnv + P_ox from scratch) gives the same interpretable features."""
     r = next(r for r in feature_golden if r["transition_id"].startswith("mp-20361_Li"))
     t = Transition.from_structure(lifepo4, r["comp_final"])
     feat = PaperFeaturizer()

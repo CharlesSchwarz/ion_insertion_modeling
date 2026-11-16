@@ -9,9 +9,9 @@ load_dataset(ion) reads the data release (one folder per working ion) from `root
     transition_rows      transitions + every feature (row_id = transition_id): training rows for ΔEdecomp
     material_rows        every material of every electrode (initial included, is_identity) + features + ef_final,
                          Edecomp_final: training rows for Eform and Edecomp
-    unscored             (de)lithiated materials P1 could not assign: scored as predicted unstable
+    unscored             (de)lithiated materials P_ox could not assign: scored as predicted unstable
     battery_split        battery_id -> is_test, cv_fold (fixed before any target was looked at)
-    materials            per material: P1 states and score, environments, Edecomp, MP's Edecomp, pymatgen/MP states
+    materials            per material: P_ox states and score, environments, Edecomp, MP's Edecomp, pymatgen/MP states
     initial_structures   battery_id, initial_mpid, structure_json (pymatgen Structure.as_dict JSON)
     capacity_materials   per electrode material: x, atoms per f.u., Edecomp, for the stable-range capacity
 """

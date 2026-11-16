@@ -11,7 +11,7 @@ def parity_plot(y_true, y_pred, ax=None, threshold: float | None = config.ABOVE_
                 lim_meV: tuple[float, float] = (-100, 400), label: str | None = None, color: str = "tab:blue",
                 annotate: bool = True, s: float = 8):
     """Predicted vs true Edecomp of the (de)lithiated materials in meV/atom. Inputs in eV/atom; non-finite
-    predictions (finals P1 could not assign) are left out. Dashed lines mark the stability cutoff; the four
+    predictions (finals P_ox could not assign) are left out. Dashed lines mark the stability cutoff; the four
     quadrants are the confusion matrix of the stable / unstable call. Returns the Axes."""
     import matplotlib.pyplot as plt
 

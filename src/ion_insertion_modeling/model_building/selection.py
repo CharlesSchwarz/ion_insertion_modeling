@@ -24,7 +24,7 @@ INTERP_MAX_AUC = 0.7
 NMI_BINS = 10
 INTERP_SUBSTITUTES = {**dict.fromkeys(("mag_initial_mean_NdValence", "mag_final_mean_NdValence", "fw_cation_mean_NdValence",
                                        "nval_d_mean_initial", "nval_d_mean_final"), "nval_d_redox_initial"),
-                      **dict.fromkeys(("p1_score_final", "p1_score_initial"), "delta_p1_score")}
+                      **dict.fromkeys(("p_ox_score_final", "p_ox_score_initial"), "delta_p_ox_score")}
 
 
 def rank_features(X: pd.DataFrame, y: np.ndarray, groups: np.ndarray, model: str = "rf",

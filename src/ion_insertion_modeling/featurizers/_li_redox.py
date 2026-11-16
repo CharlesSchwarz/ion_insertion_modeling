@@ -1,10 +1,10 @@
-"""Group li_redox: Li content and P1 oxidation-state change per transition.
+"""Group li_redox: Li content and P_ox oxidation-state change per transition.
 
 x is Li per framework f.u., li_frac the Li atomic fraction of the full composition; deltas are final − initial.
-p1_score is the P1 guesser's score of each end's oxidation states (Stage 1: site-weighted geometric mean of
+p_ox_score is the P_ox guesser's score of each end's oxidation states (Stage 1: site-weighted geometric mean of
 P(ox | env), 0-1). Both ends are scored on the initial structure's coordination environments (every material of a
 battery gets them), so the final's score uses only its composition + the initial structure (rule 3).
-Δox is the change in P1 oxidation state (final − initial, e per atom) of framework cations (elements with P1 state
+Δox is the change in P_ox oxidation state (final − initial, e per atom) of framework cations (elements with P_ox state
 >= 0 at either end; Li is not in the framework). Electrons per redox ion is in e⁻ per redox-active atom.
 """
 import numpy as np
@@ -16,9 +16,9 @@ from ion_insertion_modeling.featurizers._oxi_features import redox_element
 # is V-shaped in the signed change; linear models need |Δ|.
 ION_CONC_LABELS = ["x_initial", "x_final", "delta_x", "li_frac_initial", "li_frac_final", "delta_li_frac",
                    "abs_delta_x", "abs_delta_li_frac"]
-P1_LABELS = ["delta_ox_mean", "delta_ox_max_abs", "delta_ox_redox", "n_couples", "electrons_per_redox_ion",
-             "p1_score_initial", "p1_score_final", "delta_p1_score"]
-LABELS = ION_CONC_LABELS + P1_LABELS
+P_OX_LABELS = ["delta_ox_mean", "delta_ox_max_abs", "delta_ox_redox", "n_couples", "electrons_per_redox_ion",
+             "p_ox_score_initial", "p_ox_score_final", "delta_p_ox_score"]
+LABELS = ION_CONC_LABELS + P_OX_LABELS
 
 
 def electrons_per_redox_ion(couples: list[dict], framework_formula: str) -> float:
@@ -48,7 +48,7 @@ def oxi_change(oxi_initial: dict, oxi_final: dict, framework_formula: str, coupl
 
 def li_redox_features(oxi_initial: dict, oxi_final: dict, framework_formula: str, couples: list[dict],
                       n_couples: int, x_initial: float, x_final: float, li_frac_initial: float,
-                      li_frac_final: float, p1_score_initial: float, p1_score_final: float) -> dict[str, float]:
+                      li_frac_final: float, p_ox_score_initial: float, p_ox_score_final: float) -> dict[str, float]:
     """All li_redox columns for one transition (see module docstring for units)."""
     return {"x_initial": float(x_initial), "x_final": float(x_final), "delta_x": float(x_final - x_initial),
             "li_frac_initial": float(li_frac_initial), "li_frac_final": float(li_frac_final),
@@ -57,5 +57,5 @@ def li_redox_features(oxi_initial: dict, oxi_final: dict, framework_formula: str
             "abs_delta_li_frac": abs(float(li_frac_final - li_frac_initial)),
             **oxi_change(oxi_initial, oxi_final, framework_formula, couples),
             "n_couples": float(n_couples), "electrons_per_redox_ion": electrons_per_redox_ion(couples, framework_formula),
-            "p1_score_initial": float(p1_score_initial), "p1_score_final": float(p1_score_final),
-            "delta_p1_score": float(p1_score_final - p1_score_initial)}
+            "p_ox_score_initial": float(p_ox_score_initial), "p_ox_score_final": float(p_ox_score_final),
+            "delta_p_ox_score": float(p_ox_score_final - p_ox_score_initial)}

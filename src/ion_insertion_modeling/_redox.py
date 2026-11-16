@@ -1,6 +1,6 @@
-"""Redox couples between two P1 oxidation-state assignments.
+"""Redox couples between two P_ox oxidation-state assignments.
 
-P1 guesses are per-element *average* oxidation states, so a partial change (Mn 4.0 -> 4.5) is an interval on
+P_ox guesses are per-element *average* oxidation states, so a partial change (Mn 4.0 -> 4.5) is an interval on
 the oxidation-state axis. Each interval is split at integers and booked against the integer couples it spans.
 Electrons are e⁻ per framework formula unit (the same basis as x), signed: > 0 when the element is oxidised on
 charge, < 0 when it is reduced on charge ("counter redox"). Their sum equals z · delta_x when the guesses balance,

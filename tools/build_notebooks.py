@@ -53,21 +53,21 @@ structure = Structure.from_file("../tests/data/LiFePO4_mp-19017.cif")
 cap = predict_capacity(structure, edecomp_initial=-0.0082, model=model, x_grid=np.arange(0, 1.51, 0.25))
 print(f"stable range x = {cap.x_lo:g} to {cap.x_hi:g} Li per FePO4, capacity {cap.capacity_mAh_g:.0f} mAh/g")'''),
         md("""
-Every grid composition Li$_x$FePO$_4$ gets P1 oxidation states (scored on the LiFePO4 coordination environments),
+Every grid composition Li$_x$FePO$_4$ gets P_ox oxidation states (scored on the LiFePO4 coordination environments),
 five features and a predicted Edecomp. The stable range is the unbroken run around the initial material whose
-predicted Edecomp is at most 75 meV/atom and whose P1 score is above 0. Beyond x = 1 no charge-balanced assignment
-is plausible (Fe would go below 2+), so the P1 score drops to 0:
+predicted Edecomp is at most 75 meV/atom and whose P_ox score is above 0. Beyond x = 1 no charge-balanced assignment
+is plausible (Fe would go below 2+), so the P_ox score drops to 0:
 """),
-        code('cap.curve.states[["x", "formula", "p1_score", "edecomp_pred", "stable", "in_range"]].round(4)'),
+        code('cap.curve.states[["x", "formula", "p_ox_score", "edecomp_pred", "stable", "in_range"]].round(4)'),
     ]
 
 
 def oxi_notebook():
     return [
         md("""
-# Oxidation-state inference (P1)
+# Oxidation-state inference (P_ox)
 
-The P1 guesser assigns oxidation states from a composition and the coordination environments of its cations. It
+The P_ox guesser assigns oxidation states from a composition and the coordination environments of its cations. It
 needs no DFT and no bond valences, so it works on the (de)lithiated compositions whose structures are unknown.
 
 1. **Candidates.** pymatgen enumerates every charge-balanced assignment of the composition. Some states are fixed
@@ -142,7 +142,7 @@ for comp, e, fixed in [("Fe3O4", [("Fe", "T:4", 1), ("Fe", "O:6", 2)], None),
 from pymatgen.core import Structure
 
 lfp = Structure.from_file("../tests/data/LiFePO4_mp-19017.cif")
-print(oxi.environments_from_structure(lfp))  # O entries are kept for reference; P1 skips them (O is fixed at -2)
+print(oxi.environments_from_structure(lfp))  # O entries are kept for reference; P_ox skips them (O is fixed at -2)
 print(oxi.guess_from_structure(lfp))
 print(oxi.guess_from_framework("Li0.5FePO4", lfp))'''),
         md("""
@@ -153,7 +153,7 @@ sites. ChemEnv counts each species of a mixed site by its occupancy; the formula
 (Li56Pr24Mn4Mo12O96) before candidates are enumerated. ChemEnv takes about a minute on this 208-site cell.
 
 The CIF was written by pymatgen with oxidation states attached (Mn4+, Mo4+). Those states are only one charge-balanced
-guess; P1 ignores them and decides from the environments:
+guess; P_ox ignores them and decides from the environments:
 """),
         code('''
 garnet = Structure.from_file("data/disordered_Li7PrMoMnO.cif")
@@ -172,19 +172,19 @@ compositions without a structure (e.g. disordered rock salts) can be handled:
 ## 6. Which Li content is most plausible?
 
 `best_ion_content` scans the Li content of a framework and returns the content whose composition gets the highest
-P1 score on the structure's environments. Here x counts Li per Pr3Mo1.5Mn0.5O12 (12 O):
+P_ox score on the structure's environments. Here x counts Li per Pr3Mo1.5Mn0.5O12 (12 O):
 """),
         code('''
 x_best, g_best, table = oxi.best_ion_content(garnet, x_grid=np.arange(3, 8.01, 0.25), framework_formula="Pr3Mo1.5Mn0.5O12")
-print("highest P1 score at x =", x_best, g_best.states)
+print("highest P_ox score at x =", x_best, g_best.states)
 ax = table.plot(x="x", y="score", marker="o", legend=False, figsize=(5, 3))
 ax.axvline(7, color="0.6", ls="--", label="x in the CIF")
-ax.set_xlabel("x in Li$_x$Pr$_3$Mo$_{1.5}$Mn$_{0.5}$O$_{12}$"); ax.set_ylabel("P1 score"); ax.legend()'''),
+ax.set_xlabel("x in Li$_x$Pr$_3$Mo$_{1.5}$Mn$_{0.5}$O$_{12}$"); ax.set_ylabel("P_ox score"); ax.legend()'''),
         md("""
 The score peaks where the oxidation states are most typical for these environments (here octahedral Mo6+ with Mn2+).
 It measures how plausible the oxidation states are, not thermodynamic stability; the stable Li range comes from the
 model (notebook 03). In the paper, the change in this score between the initial and (de)lithiated material
-(`delta_p1_score`) is one of the strongest predictors of ΔEdecomp.
+(`delta_p_ox_score`) is one of the strongest predictors of ΔEdecomp.
 """),
     ]
 
@@ -240,7 +240,7 @@ print("\\nDFT outlier electrode left out:", json.loads((ds.root / "checksums.jso
 - Electrodes are dropped when every material is more than 75 meV/atom above the hull, or when their materials do not
   share one framework.
 - Materials are dropped for implausible Fe/Mn magnetic moments, a missing energy, or no cation–anion bond.
-- (De)lithiated materials P1 cannot assign (`missing_p1`) stay in the evaluation: they count as predicted unstable.
+- (De)lithiated materials P_ox cannot assign (`missing_p_ox`) stay in the evaluation: they count as predicted unstable.
 """),
         code('''
 t = ds.transitions
@@ -278,7 +278,7 @@ The grouped split is used throughout so the numbers hold for frameworks the mode
 ## 3. Feature selection inside each fold
 
 Candidate features: the 364 columns of the paper's reference set (Magpie statistics of the compositions, ion content,
-P1-state properties, P1 scores, framework structure and insertion sites; all computable from the initial structure
+P_ox-state properties, P_ox scores, framework structure and insertion sites; all computable from the initial structure
 and the two compositions). Within each fold's training rows only:
 - a random forest pre-screens the top 40 by impurity importance;
 - permutation importance on a grouped inner hold-out ranks them;
@@ -305,7 +305,7 @@ print(five)
 pd.DataFrame(walk).head(12)'''),
         md("""
 On a sample this small the walk is noisy, so its picks can differ from the paper's frozen five
-(`has_polyanion, delta_p1_score, nval_d_redox_initial, delta_li_frac, site_cn_mean`), which the rest of this
+(`has_polyanion, delta_p_ox_score, nval_d_redox_initial, delta_li_frac, site_cn_mean`), which the rest of this
 notebook uses.
 
 ## 4. Cross-validation
@@ -406,7 +406,7 @@ grid = np.arange(3, 8.01, 0.25)
 curve = ins.stability_curve(garnet, EDECOMP_INITIAL, model, x_grid=grid, framework=FRAMEWORK)
 cap = curve.capacity()
 print(f"stable range x = {cap.x_lo:g} to {cap.x_hi:g} (initial x = {curve.x_initial:g}); capacity {cap.capacity_mAh_g:.1f} mAh/g")
-curve.states[["x", "formula", "p1_score", "edecomp_pred", "stable", "in_range"]].assign(
+curve.states[["x", "formula", "p_ox_score", "edecomp_pred", "stable", "in_range"]].assign(
     edecomp_pred=lambda d: (1000 * d.edecomp_pred).round(1)).rename(columns={"edecomp_pred": "Ê (meV/atom)"})'''),
         code('''
 st = curve.states

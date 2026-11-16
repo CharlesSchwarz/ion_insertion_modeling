@@ -1,7 +1,7 @@
 """Featurizers for ion insertion/removal transitions, following matminer's BaseFeaturizer.
 
 Every featurizer takes one Transition (see transition.py), which holds the initial structure, the two compositions
-and their P1 oxidation states. Use them one at a time, together through PaperFeaturizer, or on a DataFrame column of
+and their P_ox oxidation states. Use them one at a time, together through PaperFeaturizer, or on a DataFrame column of
 Transition objects with featurize_dataframe:
 
     t = Transition.from_structure(initial_structure, "FePO4")
@@ -65,7 +65,7 @@ class _TransitionFeaturizer(BaseFeaturizer):
 
 class FrameworkMagpie(_TransitionFeaturizer):
     """Magpie statistics (mean, minimum, maximum; amount-weighted) of the framework's cations (fw_cation_*) and
-    anions (fw_anion_*), split by the sign of the initial P1 state, plus element-presence flags has_P, has_S,
+    anions (fw_anion_*), split by the sign of the initial P_ox state, plus element-presence flags has_P, has_S,
     has_Si, has_B, has_C, has_N. Framework = initial composition without the working ion. Magpie units."""
 
     labels = (_composition.magpie_labels("fw_cation") + _composition.magpie_labels("fw_anion")
@@ -106,23 +106,23 @@ class CompositionMagpie(_TransitionFeaturizer):
 
 
 class IonRedox(_TransitionFeaturizer):
-    """Ion content and P1 redox change. x_* (ions per framework f.u.), li_frac_* (ion atomic fraction), their
+    """Ion content and P_ox redox change. x_* (ions per framework f.u.), li_frac_* (ion atomic fraction), their
     deltas and |deltas|; delta_ox_mean / _max_abs / _redox (e per atom, final − initial, framework cations);
-    n_couples; electrons_per_redox_ion (e⁻ per redox-active atom); p1_score_* (0-1) and delta_p1_score."""
+    n_couples; electrons_per_redox_ion (e⁻ per redox-active atom); p_ox_score_* (0-1) and delta_p_ox_score."""
 
     labels = list(_li_redox.LABELS)
 
     def _features(self, t):
         return _li_redox.li_redox_features(t.oxi_initial, t.oxi_final, t.framework_formula, t.couples, t.n_couples,
                                            t.x_initial, t.x_final, t.li_frac_initial, t.li_frac_final,
-                                           t.p1_score_initial, t.p1_score_final)
+                                           t.p_ox_score_initial, t.p_ox_score_final)
 
     def citations(self):
         return [_PAPER_CITATION, _OXI_STATS_CITATION]
 
 
 class OxidationStateProperties(_TransitionFeaturizer):
-    """Properties of the framework cations at their P1 states, at both ends: ionic radius (Å), next ionization
+    """Properties of the framework cations at their P_ox states, at both ends: ionic radius (Å), next ionization
     energy ie_next (eV), s/p/d/f valence-electron counts nval_* (electrons), as mean / min / max over framework
     cations and for the primary redox element (_redox), plus the largest next electron affinity ea_next_max (eV).
     _delta = final − initial."""
@@ -137,7 +137,7 @@ class OxidationStateProperties(_TransitionFeaturizer):
 
 
 class FrameworkStructure(_TransitionFeaturizer):
-    """Framework (initial structure without the ion, decorated with initial P1 states) descriptors: fractions of
+    """Framework (initial structure without the ion, decorated with initial P_ox states) descriptors: fractions of
     cation-polyhedron pairs sharing corners / edges / faces, polyhedral volume ratio, framework volume per atom
     (Å³), anion packing ratio, Larsen dimensionality of the bonded network."""
 

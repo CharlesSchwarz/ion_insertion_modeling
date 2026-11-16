@@ -2,7 +2,7 @@
 
 A transition is a change of ion content in one framework: from the initial (reference) material, whose structure is
 known, to a final composition, whose structure is not. Featurizers may use only the initial structure and the two
-compositions with their P1 oxidation states (the application setting). A Transition has no field for an energy or
+compositions with their P_ox oxidation states (the application setting). A Transition has no field for an energy or
 for the final structure, so no featurizer can use one.
 """
 from __future__ import annotations
@@ -19,11 +19,11 @@ from ion_insertion_modeling import oxi_state_inference as oxi
 
 @dataclass
 class Transition:
-    """Prepared inputs of one transition. Build with Transition.from_structure (runs ChemEnv and P1) or
-    Transition.from_states (P1 states already known, e.g. from the data release).
+    """Prepared inputs of one transition. Build with Transition.from_structure (runs ChemEnv and P_ox) or
+    Transition.from_states (P_ox states already known, e.g. from the data release).
 
     x_* are ions per framework formula unit; li_frac_* the ion's atomic fraction (named li_frac for any ion);
-    oxi_* are P1 average oxidation states; p1_score_* their P1 scores on the initial structure's environments;
+    oxi_* are P_ox average oxidation states; p_ox_score_* their P_ox scores on the initial structure's environments;
     couples are the redox couples from the lower-x to the higher-x end (e⁻ per framework f.u.).
     """
     initial_structure: Structure
@@ -38,8 +38,8 @@ class Transition:
     li_frac_final: float
     oxi_initial: dict[str, float]
     oxi_final: dict[str, float]
-    p1_score_initial: float
-    p1_score_final: float
+    p_ox_score_initial: float
+    p_ox_score_final: float
     couples: list[dict]
     oxo_bonded: dict[str, float] | None = None
     environments: list | None = field(default=None, repr=False)
@@ -54,10 +54,10 @@ class Transition:
 
     @classmethod
     def from_states(cls, initial_structure: Structure, final_composition, oxi_initial: dict, oxi_final: dict,
-                    p1_score_initial: float, p1_score_final: float, ion: str = config.DEFAULT_ION,
+                    p_ox_score_initial: float, p_ox_score_final: float, ion: str = config.DEFAULT_ION,
                     comp_initial: str | None = None, framework_formula: str | None = None,
                     oxo_bonded: dict | None = None) -> "Transition":
-        """Transition from known P1 states and scores. comp_initial defaults to the structure's reduced formula;
+        """Transition from known P_ox states and scores. comp_initial defaults to the structure's reduced formula;
         oxo_bonded (for has_polyanion) is computed from the structure when not given."""
         s = initial_structure.copy()
         s.remove_oxidation_states()
@@ -74,15 +74,15 @@ class Transition:
         return cls(initial_structure=s, final_composition=Composition(cf), ion=ion, framework_formula=fw,
                    comp_initial=ci, comp_final=cf, x_initial=xi, x_final=xf,
                    li_frac_initial=formulas.ion_fraction(ci, ion), li_frac_final=formulas.ion_fraction(cf, ion),
-                   oxi_initial=dict(oxi_initial), oxi_final=dict(oxi_final), p1_score_initial=float(p1_score_initial),
-                   p1_score_final=float(p1_score_final), couples=couples, oxo_bonded=oxo)
+                   oxi_initial=dict(oxi_initial), oxi_final=dict(oxi_final), p_ox_score_initial=float(p_ox_score_initial),
+                   p_ox_score_final=float(p_ox_score_final), couples=couples, oxo_bonded=oxo)
 
     @classmethod
     def from_structure(cls, initial_structure: Structure, final_composition, ion: str = config.DEFAULT_ION,
                        environments: list | None = None, oxide_type: str = "oxide") -> "Transition":
         """Transition from the initial structure and the final composition: ChemEnv environments of the initial
-        structure (or the ones given), P1 at both ends on those environments, redox couples between them.
-        Raises ValueError if P1 finds no charge-balanced assignment at either end."""
+        structure (or the ones given), P_ox at both ends on those environments, redox couples between them.
+        Raises ValueError if P_ox finds no charge-balanced assignment at either end."""
         s = initial_structure.copy()
         s.remove_oxidation_states()
         oxo = envs_mod.oxo_bonded_fraction(s)
@@ -92,7 +92,7 @@ class Transition:
         gf = oxi.guess_from_environments(final_composition, env, oxide_type=oxide_type, fixed=fixed)
         if gi is None or gf is None:
             end = "initial" if gi is None else "final"
-            raise ValueError(f"P1 found no charge-balanced oxidation states for the {end} composition")
+            raise ValueError(f"P_ox found no charge-balanced oxidation states for the {end} composition")
         t = cls.from_states(s, final_composition, gi.states, gf.states, gi.score, gf.score, ion=ion,
                             comp_initial=s.composition.reduced_formula, oxo_bonded=oxo)
         t.environments = env

@@ -23,12 +23,12 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     ds = load_dataset("Li", root=args.data)
 
-    # P1: stored guesses of 200 materials (composition + environments -> states, score)
-    m = ds.materials.dropna(subset=["envs", "P1_oxi_state_guess"]).sample(200, random_state=0)
-    p1 = [{"mpid": r.mpid, "comp": r.comp, "oxide_type": r.oxide_type, "envs": json.loads(r.envs),
+    # P_ox: stored guesses of 200 materials (composition + environments -> states, score)
+    m = ds.materials.dropna(subset=["envs", "P_ox_guess"]).sample(200, random_state=0)
+    p_ox = [{"mpid": r.mpid, "comp": r.comp, "oxide_type": r.oxide_type, "envs": json.loads(r.envs),
            "fixed": json.loads(r.oxi_fixed) if isinstance(r.oxi_fixed, str) else {},
-           "states": json.loads(r.P1_oxi_state_guess), "score": float(r.P1_score)} for r in m.itertuples()]
-    (OUT / "p1_golden.json").write_text(json.dumps(p1))
+           "states": json.loads(r.P_ox_guess), "score": float(r.P_ox_score)} for r in m.itertuples()]
+    (OUT / "p_ox_golden.json").write_text(json.dumps(p_ox))
 
     # Features: 6 transitions with their initial structures and every expected feature value
     t = ds.transitions
@@ -42,7 +42,7 @@ def main():
         feats.append({"transition_id": r.transition_id, "structure": s.as_dict(), "comp_initial": r.comp_initial,
                       "comp_final": r.comp_final, "framework_formula": r.framework_formula,
                       "oxi_initial": json.loads(r.oxi_initial), "oxi_final": json.loads(r.oxi_final),
-                      "p1_score_initial": float(r.p1_score_initial), "p1_score_final": float(r.p1_score_final),
+                      "p_ox_score_initial": float(r.p_ox_score_initial), "p_ox_score_final": float(r.p_ox_score_final),
                       "oxo_bonded": json.loads(mats.loc[(r.battery_id, r.mpid_initial)].oxo_bonded),
                       "envs": json.loads(mats.loc[(r.battery_id, r.mpid_initial)].envs),
                       "edecomp_initial": float(r.Edecomp_initial), "edecomp_final": float(r.Edecomp_final),

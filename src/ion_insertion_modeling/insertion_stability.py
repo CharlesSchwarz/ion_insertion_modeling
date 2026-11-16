@@ -2,9 +2,9 @@
 
 Inputs follow the paper's application setting: the initial (pristine) material's structure and its Edecomp, and a
 trained ΔEdecomp model. For every ion content x on a grid (ions per framework formula unit), the composition
-ion_x(framework) gets P1 oxidation states on the initial structure's environments, features, and a predicted
+ion_x(framework) gets P_ox oxidation states on the initial structure's environments, features, and a predicted
 Ê(x) = Edecomp_initial + ΔÊ(x). The stable range is the unbroken run of grid states around the initial material with
-Ê <= cutoff (75 meV/atom by default) and a P1 score > 0.
+Ê <= cutoff (75 meV/atom by default) and a P_ox score > 0.
 
 edecomp_initial must be the signed Edecomp (eV/atom) on the MP2020 GGA/GGA+U hull: negative for a material on the
 hull (its distance below the hull of the other phases). Do not pass e_above_hull: with 0 instead of the negative
@@ -78,8 +78,8 @@ def default_grid(x0: float, x_max: float | None = None, n: int = 41) -> np.ndarr
 class StabilityCurve:
     """Predicted stability over ion content for one initial structure.
 
-    states: one row per grid x: x, formula, p1_states, p1_score, delta_pred and edecomp_pred (eV/atom; the initial
-        state keeps edecomp_initial), stable (Ê <= cutoff and P1 score > 0), in_range (in the unbroken stable run
+    states: one row per grid x: x, formula, p_ox_states, p_ox_score, delta_pred and edecomp_pred (eV/atom; the initial
+        state keeps edecomp_initial), stable (Ê <= cutoff and P_ox score > 0), in_range (in the unbroken stable run
         around the initial state), is_initial.
     """
     framework: str
@@ -130,7 +130,7 @@ def _state_transitions(structure: Structure, framework: str, xs, ion: str, envir
         env = envs_mod.uniform_environments(s.composition, env)
     gi = oxi.guess_from_environments(s.composition, env, oxide_type=oxide_type, fixed=fixed)
     if gi is None:
-        raise ValueError("P1 found no charge-balanced oxidation states for the initial structure")
+        raise ValueError("P_ox found no charge-balanced oxidation states for the initial structure")
     ci = s.composition.formula.replace(" ", "")
     out = []
     for x in xs:
@@ -172,11 +172,11 @@ def stability_curve(initial_structure: Structure, edecomp_initial: float, model,
         is_init = abs(x - x0) < 1e-6
         f = dict(zip(labels, feat.featurize(t))) if t is not None else {}
         frows.append({"x": x, **f})
-        rows.append({"x": float(x), "formula": comp, "p1_states": None if g is None else g.states,
-                     "p1_score": np.nan if g is None else g.score, "is_initial": is_init})
+        rows.append({"x": float(x), "formula": comp, "p_ox_states": None if g is None else g.states,
+                     "p_ox_score": np.nan if g is None else g.score, "is_initial": is_init})
     st = pd.DataFrame(rows)
     fx = pd.DataFrame(frows)
-    ok = st.p1_score.notna().to_numpy()
+    ok = st.p_ox_score.notna().to_numpy()
     pred = np.full(len(st), np.nan)
     if ok.any():
         pred[ok] = model.predict(fx.loc[ok, model.features])
@@ -187,7 +187,7 @@ def stability_curve(initial_structure: Structure, edecomp_initial: float, model,
         st["delta_pred"] = pred - edecomp_initial
         st["edecomp_pred"] = pred
     st.loc[st.is_initial, ["delta_pred", "edecomp_pred"]] = [0.0, edecomp_initial]
-    st["stable"] = (st.edecomp_pred <= cutoff) & (st.p1_score > 0)
+    st["stable"] = (st.edecomp_pred <= cutoff) & (st.p_ox_score > 0)
     st.loc[st.is_initial, "stable"] = True
     i0 = int(np.flatnonzero(st.is_initial.to_numpy())[0])
     lo, hi = stable_range(st.stable.to_numpy(), i0)

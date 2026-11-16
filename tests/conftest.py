@@ -36,8 +36,8 @@ def demo_dataset():
 
 
 @pytest.fixture(scope="session")
-def p1_golden():
-    return json.loads((DATA / "p1_golden.json").read_text())
+def p_ox_golden():
+    return json.loads((DATA / "p_ox_golden.json").read_text())
 
 
 @pytest.fixture(scope="session")

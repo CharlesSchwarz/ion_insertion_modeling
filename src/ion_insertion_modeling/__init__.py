@@ -2,7 +2,7 @@
 
 Modules
 -------
-oxi_state_inference   the P1 oxidation-state guesser (composition + coordination environments)
+oxi_state_inference   the P_ox oxidation-state guesser (composition + coordination environments)
 featurizers           matminer featurizers for an ion insertion/removal transition
 model_building        dataset, grouped splits, feature selection, random-forest training and CV
 insertion_stability   stable range, capacity, voltage profile and energy density of a new material

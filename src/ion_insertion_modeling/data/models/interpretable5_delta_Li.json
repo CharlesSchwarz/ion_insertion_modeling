@@ -1,7 +1,7 @@
 {
  "features": [
   "has_polyanion",
-  "delta_p1_score",
+  "delta_p_ox_score",
   "nval_d_redox_initial",
   "delta_li_frac",
   "site_cn_mean"

@@ -1,7 +1,7 @@
 """Groups 1–2: Magpie statistics over the framework's cations and anions, plus polyanion flags.
 
 The framework is the initial material with Li removed (framework_formula, per battery). Cations are elements with
-initial P1 oxidation state >= 0 (polyanion centres such as P5+ included; decided 2026-09-25), anions < 0.
+initial P_ox oxidation state >= 0 (polyanion centres such as P5+ included; decided 2026-09-25), anions < 0.
 Magpie = matminer ElementProperty, magpie data (minus config.MAGPIE_EXCLUDE), stats config.MAGPIE_STATS,
 amount-weighted.
 """
@@ -32,11 +32,11 @@ def magpie_labels(prefix: str) -> list[str]:
 
 def split_ions(framework_formula: str, oxi: dict,
                working_ion: str = config.DEFAULT_ION) -> tuple[Composition, Composition]:
-    """(cation, anion) parts of the framework composition per f.u., by the sign of the P1 oxidation state."""
+    """(cation, anion) parts of the framework composition per f.u., by the sign of the P_ox oxidation state."""
     comp = Composition(framework_formula)
     missing = [el.symbol for el in comp if el.symbol not in oxi]
     if missing:
-        raise ValueError(f"{framework_formula}: no P1 oxidation state for {missing}")
+        raise ValueError(f"{framework_formula}: no P_ox oxidation state for {missing}")
     cat = {el: amt for el, amt in comp.items() if el.symbol != working_ion and float(oxi[el.symbol]) >= 0}
     an = {el: amt for el, amt in comp.items() if el.symbol != working_ion and float(oxi[el.symbol]) < 0}
     return Composition(cat), Composition(an)

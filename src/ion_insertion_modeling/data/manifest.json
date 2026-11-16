@@ -785,44 +785,44 @@
   "units": "dimensionless"
  },
  "delta_ox_mean": {
-  "group": "p1",
+  "group": "p_ox",
   "level": "transition",
   "units": "e per atom"
  },
  "delta_ox_max_abs": {
-  "group": "p1",
+  "group": "p_ox",
   "level": "transition",
   "units": "e per atom"
  },
  "delta_ox_redox": {
-  "group": "p1",
+  "group": "p_ox",
   "level": "transition",
   "units": "e per atom"
  },
  "n_couples": {
-  "group": "p1",
+  "group": "p_ox",
   "level": "transition",
   "units": "dimensionless"
  },
  "electrons_per_redox_ion": {
-  "group": "p1",
+  "group": "p_ox",
   "level": "transition",
   "units": "e\u207b per redox atom"
  },
- "p1_score_initial": {
-  "group": "p1",
+ "p_ox_score_initial": {
+  "group": "p_ox",
   "level": "transition",
-  "units": "P1 score (0-1)"
+  "units": "P_ox score (0-1)"
  },
- "p1_score_final": {
-  "group": "p1",
+ "p_ox_score_final": {
+  "group": "p_ox",
   "level": "transition",
-  "units": "P1 score (0-1)"
+  "units": "P_ox score (0-1)"
  },
- "delta_p1_score": {
-  "group": "p1",
+ "delta_p_ox_score": {
+  "group": "p_ox",
   "level": "transition",
-  "units": "P1 score (0-1)"
+  "units": "P_ox score (0-1)"
  },
  "radius_mean_initial": {
   "group": "oxi",
