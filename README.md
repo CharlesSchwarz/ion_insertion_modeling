@@ -5,7 +5,7 @@ preparation).
 
 **The Problem:** Given some oxygen-based ionic material, how much lithium can we add to/remove from the material's structure with it maintaining good stability? How can we leverage machine learning to predict this stability range?
 
-![Predicted stability range of LixNd3W2O12](LixNd3W2O12_stability_range.png)
+![Predicted stability range of LixNd3W2O12](docs/LixNd3W2O12_stability_range.png)
 
 *Predicted decomposition energy of Li<sub>x</sub>Nd<sub>3</sub>W<sub>2</sub>O<sub>12</sub> as Li is inserted from
 x = 3. The states that stay below the 75 meV/atom cutoff give a stability range of x = 3–7 and a predicted capacity
